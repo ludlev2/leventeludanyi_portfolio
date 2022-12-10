@@ -16,8 +16,8 @@ public/sitemap.xml
 .vercel
 
 # production
-/build
-*.xml
+#/build
+
 # rss feed
 /public/feed.xml
 

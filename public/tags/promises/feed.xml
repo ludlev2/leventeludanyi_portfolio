@@ -1,0 +1,24 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Levente Ludanyi</title>
+      <link>https://ludlev2.github.io/leventeludanyi_portfolio//blog</link>
+      <description>Maths &amp; CS major at Ecole Polytechnique, Co-Founder at PointSwitch</description>
+      <language>en-us</language>
+      <managingEditor>ludanyi.levente@gmail.com (Levente Ludanyi)</managingEditor>
+      <webMaster>ludanyi.levente@gmail.com (Levente Ludanyi)</webMaster>
+      <lastBuildDate>Wed, 20 Apr 2022 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://ludlev2.github.io/leventeludanyi_portfolio//tags/promises/feed.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+    <guid>https://ludlev2.github.io/leventeludanyi_portfolio//blog/javascript-promises-async-await</guid>
+    <title>JavaScript Promise and Async/Await</title>
+    <link>https://ludlev2.github.io/leventeludanyi_portfolio//blog/javascript-promises-async-await</link>
+    <description>A short visual guide on what a Promise is in JavaScript, and how to avoid call back hell.</description>
+    <pubDate>Wed, 20 Apr 2022 00:00:00 GMT</pubDate>
+    <author>ludanyi.levente@gmail.com (Levente Ludanyi)</author>
+    <category>JavaScript</category><category>ReactJs</category><category>Snippets</category><category>Promises</category><category>Async/Await</category>
+  </item>
+
+    </channel>
+  </rss>

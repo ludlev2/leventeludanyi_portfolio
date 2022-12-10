@@ -1,0 +1,54 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Levente Ludanyi</title>
+      <link>https://ludlev2.github.io/leventeludanyi_portfolio//blog</link>
+      <description>Maths &amp; CS major at Ecole Polytechnique, Co-Founder at PointSwitch</description>
+      <language>en-us</language>
+      <managingEditor>ludanyi.levente@gmail.com (Levente Ludanyi)</managingEditor>
+      <webMaster>ludanyi.levente@gmail.com (Levente Ludanyi)</webMaster>
+      <lastBuildDate>Sun, 18 Sep 2022 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://ludlev2.github.io/leventeludanyi_portfolio//tags/reactjs/feed.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+    <guid>https://ludlev2.github.io/leventeludanyi_portfolio//blog/create-and-publish-your-own-react-component-library-with-typescript-storybook-and-tailwind</guid>
+    <title>Create and publish your own React component library with Storybook, TypeScript, and Tailwind</title>
+    <link>https://ludlev2.github.io/leventeludanyi_portfolio//blog/create-and-publish-your-own-react-component-library-with-typescript-storybook-and-tailwind</link>
+    <description>A guide on how to create your own custom React component library with Storybook, TypeScript, and Tailwind, and publish them to npm.</description>
+    <pubDate>Sun, 18 Sep 2022 00:00:00 GMT</pubDate>
+    <author>ludanyi.levente@gmail.com (Levente Ludanyi)</author>
+    <category>ReactJS</category><category>Library</category><category>Design Systems</category><category>TypeScript</category><category>Tailwind</category><category>NPM</category><category>Storybook</category>
+  </item>
+
+  <item>
+    <guid>https://ludlev2.github.io/leventeludanyi_portfolio//blog/javascript-promises-async-await</guid>
+    <title>JavaScript Promise and Async/Await</title>
+    <link>https://ludlev2.github.io/leventeludanyi_portfolio//blog/javascript-promises-async-await</link>
+    <description>A short visual guide on what a Promise is in JavaScript, and how to avoid call back hell.</description>
+    <pubDate>Wed, 20 Apr 2022 00:00:00 GMT</pubDate>
+    <author>ludanyi.levente@gmail.com (Levente Ludanyi)</author>
+    <category>JavaScript</category><category>ReactJs</category><category>Snippets</category><category>Promises</category><category>Async/Await</category>
+  </item>
+
+  <item>
+    <guid>https://ludlev2.github.io/leventeludanyi_portfolio//blog/why-does-react-need-keys</guid>
+    <title>Why does React need keys?</title>
+    <link>https://ludlev2.github.io/leventeludanyi_portfolio//blog/why-does-react-need-keys</link>
+    <description>This article will show you what is the purpose if the “key” prop in React and some best practices around it.</description>
+    <pubDate>Sun, 31 Jul 2022 00:00:00 GMT</pubDate>
+    <author>ludanyi.levente@gmail.com (Levente Ludanyi)</author>
+    <category>ReactJs</category><category>Snippets</category>
+  </item>
+
+  <item>
+    <guid>https://ludlev2.github.io/leventeludanyi_portfolio//blog/snippets/typing-usestate</guid>
+    <title>How to type the setState function from the useState hook</title>
+    <link>https://ludlev2.github.io/leventeludanyi_portfolio//blog/snippets/typing-usestate</link>
+    <description>A deep dive into how to properly type a setState function from the useState hook.</description>
+    <pubDate>Thu, 14 Apr 2022 00:00:00 GMT</pubDate>
+    <author>ludanyi.levente@gmail.com (Levente Ludanyi)</author>
+    <category>ReactJS</category><category>TypeScript</category><category>Snippets</category>
+  </item>
+
+    </channel>
+  </rss>
