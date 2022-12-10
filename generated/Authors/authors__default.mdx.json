@@ -1,0 +1,47 @@
+{
+  "name": "Levente Ludanyi",
+  "avatar": "/static/images/profpic_copy.jpg",
+  "occupation": "Maths & CS double major at Ecole Polytechnique, Co-Founder at",
+  "company": "PointSwitch",
+  "email": "ludanyi.levente@gmail.com",
+  "twitter": "https://twitter.com/",
+  "linkedin": "https://www.linkedin.com/in/levente-ludanyi-1475aa204/",
+  "github": "https://github.com/ludlev2",
+  "body": {
+    "raw": "\nI am a Co-Founder at [PointSwitch](https://pointswitch.xyz) and interned at [WorldQuant](https://www.worldquant.com), a global hedge fund, as a quantitative researcher. I am passionate about sports, I have been playing water polo throughout my whole life and this year I ran 2 marathons and now I'm preparing for the Ironman.\n\n## Education\n\n- Ecole Polytechnique - _Mathematics & Computer Science Double Major_\n- Milestone Institute\n- High School of the University of Szeged - _Mathematics specialisation with advanced Physics_\n\n## Awards\n\n- Execellence Scholarship - _École Polytechnique_\n\n- Certificate of Merit from the Ministry of Human Capacities _- Hungarian Ministry of Human Capacities_\n\n- Stipendium Peregrinum _- National Talent Support Council_\n\n- ”Talentum 2021” Grand Prize – Discovered Scientific Talent of the Year _- National Talent Support Council_\n\n- Hungary of Talents Award _- National Talent Support Council_\n\n- Huhn Andras Mathematics Award _- High School of the University of Szeged_\n\n- Young Talent of Szeged _- Local Government of the City of Szeged_\n\n- Metropolis Award _- Mathematical and Physical Journal for High Schools_\n\n- Rotary Scholarship _- Rotary Club_\n\n---\n\n## Selected competition Results\n\n- XXXV. National Scientific Student Conference **- Golden Award**\n\n- International Olympiad on Astronomy and Astrophysics **- Silver Medal**\n\n- International Astronomy and Astrophysics Competition **- Golden Medal**\n\n- Szilard Leo National Atomic and Modern Physics Competition **- 2nd place** with **special prize** for the best solution of the hardest problem\n\n- Theoretical Physics Competition of the Mathematical and Physical Journal for High Schools **- 2nd place**\n\n- Szokefalvi-Nagy Mathematics Competition **- 1st place**\n\n---\n",
+    "code": "var Component=(()=>{var s=Object.create;var l=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var g=(i,n)=>()=>(n||i((n={exports:{}}).exports,n),n.exports),y=(i,n)=>{for(var t in n)l(i,t,{get:n[t],enumerable:!0})},o=(i,n,t,a)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let r of m(n))!f.call(i,r)&&r!==t&&l(i,r,{get:()=>n[r],enumerable:!(a=p(n,r))||a.enumerable});return i};var w=(i,n,t)=>(t=i!=null?s(u(i)):{},o(n||!i||!i.__esModule?l(t,\"default\",{value:i,enumerable:!0}):t,i)),S=i=>o(l({},\"__esModule\",{value:!0}),i);var h=g((I,c)=>{c.exports=_jsx_runtime});var v={};y(v,{default:()=>b,frontmatter:()=>C});var e=w(h()),C={name:\"Levente Ludanyi\",avatar:\"/static/images/profpic_copy.jpg\",occupation:\"Maths & CS double major at Ecole Polytechnique, Co-Founder at\",company:\"PointSwitch\",email:\"ludanyi.levente@gmail.com\",twitter:\"https://twitter.com/\",linkedin:\"https://www.linkedin.com/in/levente-ludanyi-1475aa204/\",github:\"https://github.com/ludlev2\"};function d(i){let n=Object.assign({p:\"p\",a:\"a\",h2:\"h2\",span:\"span\",ul:\"ul\",li:\"li\",em:\"em\",hr:\"hr\",strong:\"strong\"},i.components);return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsxs)(n.p,{children:[\"I am a Co-Founder at \",(0,e.jsx)(n.a,{href:\"https://pointswitch.xyz\",children:\"PointSwitch\"}),\" and interned at \",(0,e.jsx)(n.a,{href:\"https://www.worldquant.com\",children:\"WorldQuant\"}),\", a global hedge fund, as a quantitative researcher. I am passionate about sports, I have been playing water polo throughout my whole life and this year I ran 2 marathons and now I'm preparing for the Ironman.\"]}),`\n`,(0,e.jsxs)(n.h2,{id:\"education\",children:[(0,e.jsx)(n.a,{\"aria-hidden\":\"true\",tabIndex:\"-1\",href:\"#education\",children:(0,e.jsx)(n.span,{className:\"icon icon-link\"})}),\"Education\"]}),`\n`,(0,e.jsxs)(n.ul,{children:[`\n`,(0,e.jsxs)(n.li,{children:[\"Ecole Polytechnique - \",(0,e.jsx)(n.em,{children:\"Mathematics & Computer Science Double Major\"})]}),`\n`,(0,e.jsx)(n.li,{children:\"Milestone Institute\"}),`\n`,(0,e.jsxs)(n.li,{children:[\"High School of the University of Szeged - \",(0,e.jsx)(n.em,{children:\"Mathematics specialisation with advanced Physics\"})]}),`\n`]}),`\n`,(0,e.jsxs)(n.h2,{id:\"awards\",children:[(0,e.jsx)(n.a,{\"aria-hidden\":\"true\",tabIndex:\"-1\",href:\"#awards\",children:(0,e.jsx)(n.span,{className:\"icon icon-link\"})}),\"Awards\"]}),`\n`,(0,e.jsxs)(n.ul,{children:[`\n`,(0,e.jsxs)(n.li,{children:[`\n`,(0,e.jsxs)(n.p,{children:[\"Execellence Scholarship - \",(0,e.jsx)(n.em,{children:\"\\xC9cole Polytechnique\"})]}),`\n`]}),`\n`,(0,e.jsxs)(n.li,{children:[`\n`,(0,e.jsxs)(n.p,{children:[\"Certificate of Merit from the Ministry of Human Capacities \",(0,e.jsx)(n.em,{children:\"- Hungarian Ministry of Human Capacities\"})]}),`\n`]}),`\n`,(0,e.jsxs)(n.li,{children:[`\n`,(0,e.jsxs)(n.p,{children:[\"Stipendium Peregrinum \",(0,e.jsx)(n.em,{children:\"- National Talent Support Council\"})]}),`\n`]}),`\n`,(0,e.jsxs)(n.li,{children:[`\n`,(0,e.jsxs)(n.p,{children:[\"\\u201DTalentum 2021\\u201D Grand Prize \\u2013 Discovered Scientific Talent of the Year \",(0,e.jsx)(n.em,{children:\"- National Talent Support Council\"})]}),`\n`]}),`\n`,(0,e.jsxs)(n.li,{children:[`\n`,(0,e.jsxs)(n.p,{children:[\"Hungary of Talents Award \",(0,e.jsx)(n.em,{children:\"- National Talent Support Council\"})]}),`\n`]}),`\n`,(0,e.jsxs)(n.li,{children:[`\n`,(0,e.jsxs)(n.p,{children:[\"Huhn Andras Mathematics Award \",(0,e.jsx)(n.em,{children:\"- High School of the University of Szeged\"})]}),`\n`]}),`\n`,(0,e.jsxs)(n.li,{children:[`\n`,(0,e.jsxs)(n.p,{children:[\"Young Talent of Szeged \",(0,e.jsx)(n.em,{children:\"- Local Government of the City of Szeged\"})]}),`\n`]}),`\n`,(0,e.jsxs)(n.li,{children:[`\n`,(0,e.jsxs)(n.p,{children:[\"Metropolis Award \",(0,e.jsx)(n.em,{children:\"- Mathematical and Physical Journal for High Schools\"})]}),`\n`]}),`\n`,(0,e.jsxs)(n.li,{children:[`\n`,(0,e.jsxs)(n.p,{children:[\"Rotary Scholarship \",(0,e.jsx)(n.em,{children:\"- Rotary Club\"})]}),`\n`]}),`\n`]}),`\n`,(0,e.jsx)(n.hr,{}),`\n`,(0,e.jsxs)(n.h2,{id:\"selected-competition-results\",children:[(0,e.jsx)(n.a,{\"aria-hidden\":\"true\",tabIndex:\"-1\",href:\"#selected-competition-results\",children:(0,e.jsx)(n.span,{className:\"icon icon-link\"})}),\"Selected competition Results\"]}),`\n`,(0,e.jsxs)(n.ul,{children:[`\n`,(0,e.jsxs)(n.li,{children:[`\n`,(0,e.jsxs)(n.p,{children:[\"XXXV. National Scientific Student Conference \",(0,e.jsx)(n.strong,{children:\"- Golden Award\"})]}),`\n`]}),`\n`,(0,e.jsxs)(n.li,{children:[`\n`,(0,e.jsxs)(n.p,{children:[\"International Olympiad on Astronomy and Astrophysics \",(0,e.jsx)(n.strong,{children:\"- Silver Medal\"})]}),`\n`]}),`\n`,(0,e.jsxs)(n.li,{children:[`\n`,(0,e.jsxs)(n.p,{children:[\"International Astronomy and Astrophysics Competition \",(0,e.jsx)(n.strong,{children:\"- Golden Medal\"})]}),`\n`]}),`\n`,(0,e.jsxs)(n.li,{children:[`\n`,(0,e.jsxs)(n.p,{children:[\"Szilard Leo National Atomic and Modern Physics Competition \",(0,e.jsx)(n.strong,{children:\"- 2nd place\"}),\" with \",(0,e.jsx)(n.strong,{children:\"special prize\"}),\" for the best solution of the hardest problem\"]}),`\n`]}),`\n`,(0,e.jsxs)(n.li,{children:[`\n`,(0,e.jsxs)(n.p,{children:[\"Theoretical Physics Competition of the Mathematical and Physical Journal for High Schools \",(0,e.jsx)(n.strong,{children:\"- 2nd place\"})]}),`\n`]}),`\n`,(0,e.jsxs)(n.li,{children:[`\n`,(0,e.jsxs)(n.p,{children:[\"Szokefalvi-Nagy Mathematics Competition \",(0,e.jsx)(n.strong,{children:\"- 1st place\"})]}),`\n`]}),`\n`]}),`\n`,(0,e.jsx)(n.hr,{})]})}function M(i={}){let{wrapper:n}=i.components||{};return n?(0,e.jsx)(n,Object.assign({},i,{children:(0,e.jsx)(d,i)})):d(i)}var b=M;return S(v);})();\n;return Component;"
+  },
+  "_id": "authors/default.mdx",
+  "_raw": {
+    "sourceFilePath": "authors/default.mdx",
+    "sourceFileName": "default.mdx",
+    "sourceFileDir": "authors",
+    "contentType": "mdx",
+    "flattenedPath": "authors/default"
+  },
+  "type": "Authors",
+  "readingTime": {
+    "text": "2 min read",
+    "minutes": 1.29,
+    "time": 77400,
+    "words": 258
+  },
+  "slug": "default",
+  "toc": [
+    {
+      "value": "Education",
+      "url": "#education",
+      "depth": 2
+    },
+    {
+      "value": "Awards",
+      "url": "#awards",
+      "depth": 2
+    },
+    {
+      "value": "Selected competition Results",
+      "url": "#selected-competition-results",
+      "depth": 2
+    }
+  ]
+}
