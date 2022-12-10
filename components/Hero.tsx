@@ -52,7 +52,7 @@ export default function Hero(): ReactElement {
                     />
                   </h1>
                 </FadeUp>
-                <FadeUp duration={0.6} delay={0.2}></FadeUp>
+
                 <FadeRight duration={0.5} delay={0.8}>
                   <Link
                     href="/about"

@@ -1,4 +1,5 @@
 import { getTopTracks } from 'lib/spotify'
+import { nowPlayingEmptyState, NowPlayingSong } from 'types/Spotify'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export type Artist = {
@@ -12,6 +13,9 @@ type Track = { artists: Artist[]; external_urls: { spotify: string }; name: stri
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const response = await getTopTracks()
+  if (response.status === 204 || response.status > 400) {
+    return false
+  }
   const { items } = await response.json()
 
   const tracks = items.slice(0, 5).map((track: Track) => ({
