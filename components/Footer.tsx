@@ -1,7 +1,7 @@
 import siteMetadata from '@/data/siteMetadata'
 import Link from 'next/link'
 import { AiFillLinkedin } from 'react-icons/ai'
-import { FaGithub, FaSpotify, FaSteam, FaTwitter } from 'react-icons/fa'
+import { FaGithub, FaSpotify, FaSteam, FaTwitter, FaFacebook, FaEnvelope } from 'react-icons/fa'
 import NowPlaying from './Spotify/NowPlaying'
 
 export default function Footer() {
@@ -17,7 +17,11 @@ export default function Footer() {
               <Link href="/">{siteMetadata.title}</Link>
             </li>
           </ul>
+
           <ul className="flex space-x-5 items-center cursor-pointer">
+            <li>
+              <span style={{ fontWeight: 'bold' }}>Get in touch </span>
+            </li>
             <li>
               <a
                 href={siteMetadata.linkedin}
@@ -34,18 +38,13 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href={siteMetadata.twitter} target="_blank" rel="noreferrer" aria-label="twitter">
-                <FaTwitter className="sm:text-lg" />
+              <a href={siteMetadata.facebook} target="_blank" rel="noreferrer" aria-label="twitter">
+                <FaFacebook className="sm:text-lg" />
               </a>
             </li>
             <li>
-              <a href={siteMetadata.spotify} target="_blank" rel="noreferrer" aria-label="spotify">
-                <FaSpotify className="sm:text-lg" />
-              </a>
-            </li>
-            <li>
-              <a href={siteMetadata.steam} target="_blank" rel="noreferrer" aria-label="steam">
-                <FaSteam className="sm:text-lg" />
+              <a href="mailto: ludanyi.levente@gmail.com">
+                <FaEnvelope className="sm:text-lg" />
               </a>
             </li>
           </ul>

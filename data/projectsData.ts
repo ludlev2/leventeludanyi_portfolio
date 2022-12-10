@@ -1,17 +1,22 @@
 const projectsData = [
   {
-    title: 'mathgame',
-    description: `Can you solve 10 basic math questions in 10 seconds? If you think you can, then give this game a try!`,
-    imgSrc: '/static/images/project/mathgame.png',
-    tag: ['javascript', 'css'],
-    href: 'https://mathgame-dlarroder.vercel.app/',
+    title: 'PointSwitch',
+    description: `Peer2Peer marketplace for discounts and loyalty points. 
+
+We help customers save money on shopping and brands retain customers by making discounts valuable and worthwhile. On our platform users can buy, sell, or stake their loyalty points which makes their discounts 100% interoperable. At the same time brands benefit from the increased user activity by creating engaging loyalty programs.
+
+Learn more at pointswitch.xyz`,
+    imgSrc: '/static/images/project/pointswitchsite.png',
+    tag: ['web3', 'startup'],
+    href: 'https://pointswitch.xyz',
   },
   {
-    title: 'snakegame',
-    description: 'Recreated the classic 3310 snake game using plain HTML and JavaScript!',
-    imgSrc: '/static/images/project/snakegame.png',
-    tag: ['javascript', 'css'],
-    href: 'https://snakegame-dlarroder.vercel.app/',
+    title: 'Automated Market Maker with Different Liquidity Protocols and Mark Simulator',
+    description:
+      'I lead a team of 20 people to build a market maker that can interact with different liquidity protocols and a market simulator to test the market maker. The market maker is built on top of Uniswap V2 and the liquidity protocols are built on top of Curve and Balancer. The market maker is open source and can be found at',
+    imgSrc: '/static/images/project/pointswitchsite.png',
+    tag: ['AMM', 'cpp', 'defi'],
+    href: 'https://github.com/Liquidity-protocol-CSE201-Project/Project',
   },
 ]
 

@@ -1,5 +1,6 @@
 import Image from '@/components/Image'
 import { PageSEO } from '@/components/SEO'
+import Typewriter from 'typewriter-effect'
 import type { Authors } from 'contentlayer/generated'
 import { ReactNode } from 'react'
 
@@ -17,14 +18,22 @@ export default function AuthorLayout({ children, content }: Props) {
       <div className="pt-8">
         <div className="flex flex-col-reverse items-center justify-between mb-8 sm:flex-row sm:items-center">
           <div className="text-center sm:text-left">
-            <h1 className="text-xl font-bold md:text-3xl lg:text-4xl">Dale Larroder</h1>
+            <h1 className="text-xl font-bold md:text-3xl lg:text-4xl">
+              <Typewriter
+                options={{
+                  strings: ['Levente Ludányi', 'Levi'],
+                  autoStart: true,
+                  loop: true,
+                }}
+              />
+            </h1>
             <h2 className="text-sm font-normal md:text-base">
               {occupation} <span className="font-semibold">{company}</span>
             </h2>
           </div>
           <div>
             <Image
-              alt="Dale Larroder"
+              alt="Levente Ludányi"
               height={130}
               width={130}
               src={avatar || ''}

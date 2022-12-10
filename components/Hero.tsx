@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
+import Typewriter from 'typewriter-effect'
 import { ReactElement, useContext, useEffect, useRef } from 'react'
 import { HiOutlineArrowNarrowDown } from 'react-icons/hi'
 import FadeDown from './Animations/FadeDown'
@@ -26,7 +27,8 @@ export default function Hero(): ReactElement {
   return (
     <div>
       <h1 className="sr-only">
-        Hello I'm Dale Larroder, I'm a software engineer, and I love building things for the web.
+        Hi I'm Levente Ludanyi, I'm enthusiastic about quant finance and web3. I love to build
+        digital products.
       </h1>
       <motion.div
         className="relative z-10 flex h-[calc(100vh-81px)] md:h-[calc(100vh-116px)] items-center"
@@ -41,14 +43,16 @@ export default function Hero(): ReactElement {
               <div ref={ref} className="flex flex-col space-y-2 cursor-default">
                 <FadeUp duration={0.6}>
                   <h1 className="font-semibold text-5xl sm:text-7xl md:text-8xl xl:text-9xl">
-                    Dale Larroder
+                    <Typewriter
+                      options={{
+                        strings: ['Levente Ludányi', 'Levi'],
+                        autoStart: true,
+                        loop: true,
+                      }}
+                    />
                   </h1>
                 </FadeUp>
-                <FadeUp duration={0.6} delay={0.2}>
-                  <h2 className="font-medium opacity-80 text-3xl sm:text-6xl md:text-6xl xl:text-7xl">
-                    I build things for the web.
-                  </h2>
-                </FadeUp>
+                <FadeUp duration={0.6} delay={0.2}></FadeUp>
                 <FadeRight duration={0.5} delay={0.8}>
                   <Link
                     href="/about"

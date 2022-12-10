@@ -9,7 +9,7 @@ interface RecentPosts {
 }
 
 export default function RecentPosts({ posts }: RecentPosts) {
-  const slicedPost = posts.slice(0, MAX_DISPLAY)
+  /*const slicedPost = posts.slice(0, MAX_DISPLAY)
 
   return (
     <>
@@ -30,4 +30,5 @@ export default function RecentPosts({ posts }: RecentPosts) {
       )}
     </>
   )
+  */
 }
