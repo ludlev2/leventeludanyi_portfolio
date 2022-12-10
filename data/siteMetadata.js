@@ -5,7 +5,7 @@ const siteMetadata = {
   description: 'Maths & CS major at Ecole Polytechnique, Co-Founder at PointSwitch',
   language: 'en-us',
   theme: 'dark', // system, dark or light
-  siteUrl: 'https://dalelarroder.com',
+  siteUrl: 'https://ludlev2.github.io/leventeludanyi_portfolio/',
   siteRepo: 'https://github.com/dlarroder/dalelarroder-blog',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/profpic_copy.jpg',
