@@ -21,8 +21,8 @@ module.exports = {
   basePath: basePath,
   images: {
     unoptimized: true,
-    loader: 'imgix',
-    path: 'the "domain" of your Imigix source',
+    //loader: 'imgix',
+    //path: 'the "domain" of your Imigix source',
   },
 }
 
