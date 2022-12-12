@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
-import Typewriter from 'typewriter-effect'
+//import Typewriter from 'typewriter-effect'
 import { ReactElement, useContext, useEffect, useRef } from 'react'
 import { HiOutlineArrowNarrowDown } from 'react-icons/hi'
 import FadeDown from './Animations/FadeDown'
@@ -43,13 +43,7 @@ export default function Hero(): ReactElement {
               <div ref={ref} className="flex flex-col space-y-2 cursor-default">
                 <FadeUp duration={0.6}>
                   <h1 className="font-semibold text-5xl sm:text-7xl md:text-8xl xl:text-9xl">
-                    <Typewriter
-                      options={{
-                        strings: ['Levente Ludányi', 'Levi'],
-                        autoStart: true,
-                        loop: true,
-                      }}
-                    />
+                    Levente Ludanyi
                   </h1>
                 </FadeUp>
 
