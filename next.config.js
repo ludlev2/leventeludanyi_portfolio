@@ -20,9 +20,9 @@ module.exports = {
   assetPrefix: assetPrefix,
   basePath: basePath,
   images: {
-    unoptimized: true,
-    //loader: 'imgix',
-    //path: 'the "domain" of your Imigix source',
+    //unoptimized: true,
+    loader: 'akamai',
+    path: 'the "domain" of your Imigix source',
   },
 }
 
