@@ -11,10 +11,10 @@ Learn more at pointswitch.xyz`,
     href: 'https://pointswitch.xyz',
   },
   {
-    title: 'Automated Market Maker with Different Liquidity Protocols and Mark Simulator',
+    title: 'Liquidity Pools and Probabilistic Multi-Agent Market Simulator',
     description:
-      'I lead a team of 20 people to build a market maker that can interact with different liquidity protocols and a market simulator to test the market maker. The market maker is built on top of Uniswap V2 and the liquidity protocols are built on top of Curve and Balancer. The market maker is open source and can be found at',
-    imgSrc: '/static/images/project/pointswitchsite.png',
+      'I lead a team of 20 people to build a multi-agent probabilistic market simulator and liquidity pools to test different automated market makers and built the infrastructure for users to create their own algorithms.',
+    imgSrc: '/static/images/project/LP_pics.png',
     tag: ['AMM', 'cpp', 'defi'],
     href: 'https://github.com/Liquidity-protocol-CSE201-Project/Project',
   },
