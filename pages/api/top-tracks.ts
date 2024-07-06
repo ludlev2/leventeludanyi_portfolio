@@ -1,5 +1,4 @@
 import { getTopTracks } from 'lib/spotify'
-import { nowPlayingEmptyState, NowPlayingSong } from 'types/Spotify'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export type Artist = {

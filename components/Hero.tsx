@@ -1,7 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
-// import Typewriter from 'typewriter-effect'
-// import ParticleEffectButton from 'react-particle-effect-button'
 import { ReactElement, useContext, useEffect, useRef } from 'react'
 import { HiOutlineArrowNarrowDown } from 'react-icons/hi'
 import FadeDown from './Animations/FadeDown'
@@ -18,7 +16,8 @@ export default function Hero(): ReactElement {
   const { current: elContainer } = ref
 
   if (elContainer) {
-    progress = Math.min(1, scrollY / elContainer.clientHeight)
+    const scrollThreshold = elContainer.clientHeight * 0.1
+    progress = Math.min(1, scrollY / scrollThreshold)
   }
 
   useEffect(() => {
@@ -26,11 +25,8 @@ export default function Hero(): ReactElement {
   }, [])
 
   return (
-    <div>
-      <h1 className="sr-only">
-        Hi I'm Levente Ludanyi, I'm enthusiastic about quant finance and web3. I love to build
-        digital products.
-      </h1>
+    <div className="relative">
+      <h1 className="sr-only">Hi I'm Levente Ludanyi, I'm building Margin.</h1>
       <motion.div
         className="relative z-10 flex h-[calc(100vh-81px)] md:h-[calc(100vh-116px)] items-center"
         animate={{
@@ -38,45 +34,41 @@ export default function Hero(): ReactElement {
         }}
         transition={{ type: 'spring', stiffness: 50 }}
       >
-        <AnimatePresence>
-          <div className="w-screen px-4 max-w-3xl mx-auto sm:px-9 xl:max-w-5xl xl:px-0">
-            <div className="-mt-36">
-              <div ref={ref} className="flex flex-col space-y-2 cursor-default">
-                <FadeUp duration={0.6}>
-                  <h1 className="font-semibold text-5xl sm:text-7xl md:text-8xl xl:text-9xl">
-                    Levente Ludanyi
-                  </h1>
-                </FadeUp>
+        <div className="w-screen px-4 max-w-3xl mx-auto sm:px-9 xl:max-w-5xl xl:px-0">
+          <div className="-mt-36">
+            <div ref={ref} className="flex flex-col space-y-2 cursor-default">
+              <FadeUp duration={0.6}>
+                <h1 className="font-semibold text-5xl sm:text-7xl md:text-8xl xl:text-9xl">
+                  Levente Ludányi
+                </h1>
+              </FadeUp>
 
-                <FadeRight duration={0.5} delay={0.8}>
-                  <Link
-                    href="/about"
-                    className="underline-magical cursor-pointer w-max text-md sm:text-lg md:text-xl xl:text-2xl"
-                  >
-                    Read more about me &rarr;
-                  </Link>
-                </FadeRight>
-              </div>
-              <div className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2">
-                <div
-                  role="presentation"
-                  className="flex flex-col justify-center items-center cursor-pointer"
-                  onClick={() => {
-                    const intro = document.querySelector('#intro')
-
-                    intro?.scrollIntoView({ behavior: 'smooth' })
-                  }}
+              <FadeRight duration={0.5} delay={0.8}>
+                <Link
+                  href="/about"
+                  className="underline-magical cursor-pointer w-max text-md sm:text-lg md:text-xl xl:text-2xl"
                 >
-                  <FadeDown duration={1} delay={1.2}>
-                    <HiOutlineArrowNarrowDown size={20} />
-                  </FadeDown>
-                </div>
-              </div>
+                  Read more about me &rarr;
+                </Link>
+              </FadeRight>
+            </div>
+            <div className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2">
+              <div
+                role="presentation"
+                className="flex flex-col justify-center items-center cursor-pointer"
+                onClick={() => {
+                  const intro = document.querySelector('#intro')
+                  intro?.scrollIntoView({ behavior: 'smooth' })
+                }}
+              ></div>
             </div>
           </div>
-        </AnimatePresence>
+        </div>
       </motion.div>
-      <canvas className="bg-skin-base pointer-events-none absolute inset-0" id="canvas"></canvas>
+      <canvas
+        className="bg-skin-base pointer-events-none absolute top-0 left-0 w-full h-full"
+        id="canvas"
+      ></canvas>
     </div>
   )
 }

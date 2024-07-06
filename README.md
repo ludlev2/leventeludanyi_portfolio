@@ -1,4 +1,4 @@
-# ludanyilevente.com ⚡️
+# ludanyi.me ⚡️
 
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Deployment**: [Vercel](https://vercel.com)
@@ -25,4 +25,3 @@ Don't forget to give the project a star! Thanks again!
 2. Commit your Changes (`git commit -m 'Add some Feature'`)
 3. Push to the Branch (`git push origin main`)
 4. Open a Pull Request
-

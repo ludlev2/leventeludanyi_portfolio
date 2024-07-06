@@ -2,13 +2,11 @@ import siteMetadata from '@/data/siteMetadata'
 import Link from 'next/link'
 import { AiFillLinkedin } from 'react-icons/ai'
 import { FaGithub, FaSpotify, FaSteam, FaTwitter, FaFacebook, FaEnvelope } from 'react-icons/fa'
-import NowPlaying from './Spotify/NowPlaying'
 
 export default function Footer() {
   return (
     <footer>
       <div className="flex flex-col space-y-1.5 justify-start py-10 mb-0 space-x-0 text-gray-500 dark:text-gray-400">
-        <NowPlaying />
         <div className="flex flex-col space-y-2 items-center text-sm sm:text-base sm:flex-row sm:justify-between">
           <ul className="flex space-x-2">
             <li>{`© ${new Date().getFullYear()}`}</li>
@@ -19,9 +17,7 @@ export default function Footer() {
           </ul>
 
           <ul className="flex space-x-5 items-center cursor-pointer">
-            <li>
-              <span style={{ fontWeight: 'bold' }}>Get in touch </span>
-            </li>
+            <span style={{ fontWeight: 'bold' }}>Get in touch </span>
             <li>
               <a
                 href={siteMetadata.linkedin}
@@ -43,7 +39,7 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="mailto: ludanyi.levente@gmail.com">
+              <a href="mailto: levente@ludanyi.me">
                 <FaEnvelope className="sm:text-lg" />
               </a>
             </li>
