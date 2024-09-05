@@ -19,7 +19,7 @@ export default function MainLayout({ children }: Props) {
     <SectionContainer>
       <Header />
       <div className="flex flex-col justify-between h-screen">
-        <motion.main
+        {/* <motion.main
           className="mb-auto"
           initial="hidden"
           animate="enter"
@@ -27,8 +27,10 @@ export default function MainLayout({ children }: Props) {
           variants={variants}
           transition={{ type: 'linear' }}
         >
-          {children}
-        </motion.main>
+          {children} */}
+        {children}
+        {/* </motion.main>
+        } */}
         <Footer />
       </div>
     </SectionContainer>

@@ -37,20 +37,28 @@ export default function Hero(): ReactElement {
         <div className="w-screen px-4 max-w-3xl mx-auto sm:px-9 xl:max-w-5xl xl:px-0">
           <div className="-mt-36">
             <div ref={ref} className="flex flex-col space-y-2 cursor-default">
-              <FadeUp duration={0.6}>
-                <h1 className="font-semibold text-5xl sm:text-7xl md:text-8xl xl:text-9xl">
-                  Levente Ludányi
-                </h1>
-              </FadeUp>
+              {
+                // <FadeUp duration={0.6}>
+              }
+              <h1 className="font-semibold text-5xl sm:text-7xl md:text-8xl xl:text-9xl">
+                Levente Ludányi
+              </h1>
+              {
+                // </FadeUp>
+              }
 
-              <FadeRight duration={0.5} delay={0.8}>
-                <Link
-                  href="/about"
-                  className="underline-magical cursor-pointer w-max text-md sm:text-lg md:text-xl xl:text-2xl"
-                >
-                  Read more about me &rarr;
-                </Link>
-              </FadeRight>
+              {
+                // <FadeRight duration={0.5} delay={0.8}>
+              }
+              <Link
+                href="/about"
+                className="underline-magical cursor-pointer w-max text-md sm:text-lg md:text-xl xl:text-2xl"
+              >
+                Read more about me &rarr;
+              </Link>
+              {
+                // </FadeRight>
+              }
             </div>
             <div className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2">
               <div
