@@ -30,17 +30,38 @@ export default function Hero(): ReactElement {
     // Add resize listener
     window.addEventListener('resize', checkDevice)
 
-    // Only render canvas on desktop devices
-    if (!isMobileOrTablet) {
-      renderCanvas()
-    }
+    // Initialize the canvas animation for all devices
+    renderCanvas()
 
     // Clean up event listener
     return () => window.removeEventListener('resize', checkDevice)
+  }, [])
+
+  useEffect(() => {
+    // For mobile and tablet: prevent scrolling on the Hero section
+    const preventScroll = (e: TouchEvent) => {
+      // Only prevent default if we're on the Hero section
+      const heroSection = document.querySelector('.hero-section')
+      if (heroSection && heroSection.contains(e.target as Node)) {
+        e.preventDefault()
+      }
+    }
+
+    // Add touch event listeners to prevent scrolling only on mobile/tablet
+    if (isMobileOrTablet) {
+      document.addEventListener('touchmove', preventScroll, { passive: false })
+    }
+
+    // Clean up event listeners
+    return () => {
+      if (isMobileOrTablet) {
+        document.removeEventListener('touchmove', preventScroll)
+      }
+    }
   }, [isMobileOrTablet])
 
   return (
-    <div className="relative">
+    <div className="relative hero-section">
       <h1 className="sr-only">Hi I'm Levente Ludanyi, I'm building Margin.</h1>
       <motion.div
         className="relative z-10 flex h-[calc(100vh-81px)] md:h-[calc(100vh-116px)] items-center"
@@ -88,12 +109,10 @@ export default function Hero(): ReactElement {
           </div>
         </div>
       </motion.div>
-      {!isMobileOrTablet && (
-        <canvas
-          className="bg-skin-base pointer-events-none absolute top-0 left-0 w-full h-full"
-          id="canvas"
-        ></canvas>
-      )}
+      <canvas
+        className="bg-skin-base pointer-events-none absolute top-0 left-0 w-full h-full"
+        id="canvas"
+      ></canvas>
     </div>
   )
 }
