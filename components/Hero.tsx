@@ -1,16 +1,13 @@
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ReactElement, useContext, useEffect, useRef } from 'react'
-import { HiOutlineArrowNarrowDown } from 'react-icons/hi'
-import FadeDown from './Animations/FadeDown'
-import FadeRight from './Animations/FadeRight'
-import FadeUp from './Animations/FadeUp'
+import { ReactElement, useContext, useEffect, useRef, useState } from 'react'
 import { renderCanvas } from './renderCanvas'
 import { ScrollContext } from './ScrollObserver'
 
 export default function Hero(): ReactElement {
   const ref = useRef<HTMLHeadingElement>(null)
   const { scrollY } = useContext(ScrollContext)
+  const [isMobileOrTablet, setIsMobileOrTablet] = useState(false)
 
   let progress = 0
   const { current: elContainer } = ref
@@ -21,8 +18,26 @@ export default function Hero(): ReactElement {
   }
 
   useEffect(() => {
-    renderCanvas()
-  }, [])
+    // Function to check if the device is mobile or tablet based on screen width
+    const checkDevice = () => {
+      const width = window.innerWidth
+      setIsMobileOrTablet(width < 1024) // Typically, 1024px is the breakpoint for desktop
+    }
+
+    // Check initially
+    checkDevice()
+
+    // Add resize listener
+    window.addEventListener('resize', checkDevice)
+
+    // Only render canvas on desktop devices
+    if (!isMobileOrTablet) {
+      renderCanvas()
+    }
+
+    // Clean up event listener
+    return () => window.removeEventListener('resize', checkDevice)
+  }, [isMobileOrTablet])
 
   return (
     <div className="relative">
@@ -73,10 +88,12 @@ export default function Hero(): ReactElement {
           </div>
         </div>
       </motion.div>
-      <canvas
-        className="bg-skin-base pointer-events-none absolute top-0 left-0 w-full h-full"
-        id="canvas"
-      ></canvas>
+      {!isMobileOrTablet && (
+        <canvas
+          className="bg-skin-base pointer-events-none absolute top-0 left-0 w-full h-full"
+          id="canvas"
+        ></canvas>
+      )}
     </div>
   )
 }

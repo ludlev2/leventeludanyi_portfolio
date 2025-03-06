@@ -80,19 +80,32 @@ function onMousemove(e) {
       lines.push(new Line({ spring: 0.45 + (e / E.trails) * 0.025 }))
   }
   function c(e) {
-    e.touches
-      ? ((pos.x = e.touches[0].pageX), (pos.y = e.touches[0].pageY))
-      : ((pos.x = e.clientX), (pos.y = e.clientY)),
-      e.preventDefault()
+    // For touch devices, only process single touches to avoid interference with scrolling gestures
+    if (e.touches) {
+      if (e.touches.length === 1) {
+        pos.x = e.touches[0].pageX
+        pos.y = e.touches[0].pageY
+        // Prevent default behavior to avoid scrolling conflicts
+        e.preventDefault()
+      }
+    } else {
+      pos.x = e.clientX
+      pos.y = e.clientY
+    }
   }
   function l(e) {
-    1 == e.touches.length && ((pos.x = e.touches[0].pageX), (pos.y = e.touches[0].pageY))
+    if (e.touches.length === 1) {
+      pos.x = e.touches[0].pageX
+      pos.y = e.touches[0].pageY
+      // Prevent default to avoid scrolling conflicts
+      e.preventDefault()
+    }
   }
   document.removeEventListener('mousemove', onMousemove),
     document.removeEventListener('touchstart', onMousemove),
     document.addEventListener('mousemove', c),
-    document.addEventListener('touchmove', c),
-    document.addEventListener('touchstart', l),
+    document.addEventListener('touchmove', c, { passive: false }),
+    document.addEventListener('touchstart', l, { passive: false }),
     c(e),
     o(),
     render()
@@ -140,7 +153,10 @@ function Node() {
 }
 
 export const renderCanvas = function () {
-  ctx = document.getElementById('canvas').getContext('2d')
+  const canvas = document.getElementById('canvas')
+  if (!canvas) return // Safety check in case the canvas doesn't exist
+
+  ctx = canvas.getContext('2d')
   ctx.running = true
   ctx.frame = 1
   f = new n({
@@ -149,18 +165,23 @@ export const renderCanvas = function () {
     frequency: 0.0015,
     offset: 285,
   })
-  document.addEventListener('mousemove', onMousemove)
-  document.addEventListener('touchstart', onMousemove)
-  document.body.addEventListener('orientationchange', resizeCanvas)
-  window.addEventListener('resize', resizeCanvas)
-  window.addEventListener('focus', () => {
-    if (!ctx.running) {
+
+  // Only add event listeners if we're on a desktop
+  // This is a fallback, as the component should already be handling this logic
+  if (window.innerWidth >= 1024) {
+    document.addEventListener('mousemove', onMousemove)
+    document.addEventListener('touchstart', onMousemove)
+    document.body.addEventListener('orientationchange', resizeCanvas)
+    window.addEventListener('resize', resizeCanvas)
+    window.addEventListener('focus', () => {
+      if (!ctx.running) {
+        ctx.running = true
+        render()
+      }
+    })
+    window.addEventListener('blur', () => {
       ctx.running = true
-      render()
-    }
-  })
-  window.addEventListener('blur', () => {
-    ctx.running = true
-  })
-  resizeCanvas()
+    })
+    resizeCanvas()
+  }
 }
