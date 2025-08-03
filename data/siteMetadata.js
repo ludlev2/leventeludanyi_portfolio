@@ -1,11 +1,12 @@
 const siteMetadata = {
-  title: 'Levente Ludanyi',
+  title: 'Levente Ludanyi - Portfolio | Maths & CS Student at École Polytechnique',
   author: 'Levente Ludanyi',
   headerTitle: 'leventeludanyi',
-  description: 'Maths & CS major at Ecole Polytechnique, Co-Founder at Margin (prev. PointSwitch)',
+  description:
+    'Levente Ludanyi portfolio - Mathematics and Computer Science student at École Polytechnique, Co-Founder at Margin. Explore my projects, blog posts, and professional journey.',
   language: 'en-us',
   theme: 'dark', // system, dark or light
-  siteUrl: 'https://ludlev2.github.io/leventeludanyi_portfolio/',
+  siteUrl: 'https://ludanyi.me',
   siteRepo: 'https://github.com/dlarroder/dalelarroder-blog',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/profpic_copy.jpg',
