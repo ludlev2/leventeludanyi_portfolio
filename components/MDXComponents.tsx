@@ -2,12 +2,15 @@
 import { coreContent } from '@/lib/utils/contentlayer'
 import { LinkButton } from '@dlarroder/playground'
 import type { Authors, Blog } from 'contentlayer/generated'
-import { ComponentMap } from 'mdx-bundler/client'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import Image from './Image'
 import CustomLink from './Link'
 import Pre from './Pre'
 import TOCInline from './TOCInline'
+
+type ComponentMap = {
+  [key: string]: React.ComponentType<any>
+}
 
 interface MDXLayout {
   layout: string

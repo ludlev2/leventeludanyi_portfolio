@@ -9,7 +9,10 @@ n.prototype = {
     this.amplitude = e.amplitude || 1
   },
   update: function () {
-    return (this.phase += this.frequency), (e = this.offset + Math.sin(this.phase) * this.amplitude)
+    return (
+      (this.phase += this.frequency),
+      (e = this.offset + Math.sin(this.phase) * this.amplitude)
+    )
   },
   value: function () {
     return e
@@ -38,7 +41,7 @@ Line.prototype = {
     t.vx += (pos.x - t.x) * e
     t.vy += (pos.y - t.y) * e
     for (var n, i = 0, a = this.nodes.length; i < a; i++)
-      (t = this.nodes[i]),
+      ((t = this.nodes[i]),
         0 < i &&
           ((n = this.nodes[i - 1]),
           (t.vx += (n.x - t.x) * e),
@@ -49,7 +52,7 @@ Line.prototype = {
         (t.vy *= this.friction),
         (t.x += t.vx),
         (t.y += t.vy),
-        (e *= E.tension)
+        (e *= E.tension))
   },
   draw: function () {
     var e,
@@ -94,14 +97,14 @@ function onMousemove(e) {
       pos.y = e.touches[0].pageY
     }
   }
-  document.removeEventListener('mousemove', onMousemove),
+  ;(document.removeEventListener('mousemove', onMousemove),
     document.removeEventListener('touchstart', onMousemove),
     document.addEventListener('mousemove', c),
     document.addEventListener('touchmove', c),
     document.addEventListener('touchstart', l),
     c(e),
     o(),
-    render()
+    render())
 }
 
 function render() {

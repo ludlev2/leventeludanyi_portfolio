@@ -1,4 +1,4 @@
-import slugger from 'github-slugger'
+import GithubSlugger from 'github-slugger'
 import { Heading } from 'mdast'
 import { toString } from 'mdast-util-to-string'
 import { remark } from 'remark'
@@ -10,6 +10,7 @@ import { VFile } from 'vfile'
 export function remarkTocHeadings() {
   return (tree: Parent, file: VFile) => {
     const toc: Toc = []
+    const slugger = new GithubSlugger()
     visit(tree, 'heading', (node: Heading) => {
       const textContent = toString(node)
       toc.push({
