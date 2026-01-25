@@ -1,0 +1,77 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import Terminal from '@/components/Terminal/Terminal';
+import { formatDate } from '@/lib/utils';
+
+interface Props {
+  title: string;
+  date: Date;
+  author: string;
+  tags?: string[];
+  summary?: string;
+  readingTime?: string;
+}
+
+const { title, date, author, tags = [], summary, readingTime } = Astro.props;
+---
+
+<BaseLayout title={`${title} | Levente Ludanyi`} description={summary}>
+  <Header />
+
+  <main class="min-h-screen pt-20 pb-16">
+    <article class="max-w-3xl mx-auto px-6">
+      <!-- Post header -->
+      <header class="mb-12">
+        <div class="flex items-center gap-3 text-text-muted text-sm font-mono mb-4">
+          <time datetime={date.toISOString()}>{formatDate(date)}</time>
+          {readingTime && (
+            <>
+              <span>•</span>
+              <span>{readingTime}</span>
+            </>
+          )}
+        </div>
+
+        <h1 class="text-3xl sm:text-4xl font-mono font-medium text-text-primary mb-4">
+          {title}
+        </h1>
+
+        {summary && (
+          <p class="text-text-secondary font-serif text-lg leading-relaxed">
+            {summary}
+          </p>
+        )}
+
+        {tags.length > 0 && (
+          <div class="flex flex-wrap gap-2 mt-6">
+            {tags.map((tag) => (
+              <span class="px-2 py-1 text-xs font-mono bg-bg-secondary text-text-secondary rounded">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+      </header>
+
+      <!-- Post content -->
+      <div class="prose prose-invert prose-lg max-w-none font-serif">
+        <slot />
+      </div>
+
+      <!-- Back link -->
+      <div class="mt-16 pt-8 border-t border-bg-secondary">
+        <a
+          href="/blog"
+          class="font-mono text-accent hover:underline"
+        >
+          ← Back to blog
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+  <Terminal client:load />
+</BaseLayout>

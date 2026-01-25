@@ -1,0 +1,52 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Terminal from '@/components/Terminal/Terminal';
+---
+
+<BaseLayout title="404 | Levente Ludanyi">
+  <main class="min-h-screen flex flex-col items-center justify-center px-6">
+    <div class="max-w-2xl w-full text-center">
+      <!-- ASCII Art 404 -->
+      <pre class="text-accent font-mono text-xs sm:text-sm mb-8 inline-block text-left">
+{`
+  ██╗  ██╗ ██████╗ ██╗  ██╗
+  ██║  ██║██╔═████╗██║  ██║
+  ███████║██║██╔██║███████║
+  ╚════██║████╔╝██║╚════██║
+       ██║╚██████╔╝     ██║
+       ╚═╝ ╚═════╝      ╚═╝
+`}
+      </pre>
+
+      <h1 class="text-2xl sm:text-3xl font-mono font-medium text-text-primary mb-4">
+        Page not found<span class="cursor"></span>
+      </h1>
+
+      <p class="text-text-secondary font-serif text-lg mb-8">
+        Looks like you've ventured into uncharted territory.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/"
+          class="font-mono text-accent hover:underline"
+        >
+          ← Go home
+        </a>
+        <span class="text-text-muted hidden sm:inline">or</span>
+        <button
+          onclick="window.dispatchEvent(new CustomEvent('toggle-terminal'))"
+          class="font-mono text-text-secondary hover:text-accent transition-colors"
+        >
+          Open terminal
+        </button>
+      </div>
+
+      <p class="text-text-muted text-sm font-mono mt-12">
+        Error code: 404 | Resource not found
+      </p>
+    </div>
+  </main>
+
+  <Terminal client:load />
+</BaseLayout>

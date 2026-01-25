@@ -1,0 +1,68 @@
+---
+import '@/styles/global.css';
+import { siteConfig } from '@/lib/site-config';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = siteConfig.title,
+  description = siteConfig.description
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content={siteConfig.author} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+
+    <!-- Theme -->
+    <script is:inline>
+      const theme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.classList.toggle('light', theme === 'light');
+    </script>
+  </head>
+  <body class="bg-bg-primary text-text-primary min-h-screen">
+    <slot />
+
+    <!-- Terminal hint -->
+    <div class="fixed bottom-4 right-4 text-text-muted text-xs font-mono opacity-50 hover:opacity-100 transition-opacity pointer-events-none select-none">
+      Press <kbd class="px-1.5 py-0.5 bg-bg-secondary rounded text-text-secondary">`</kbd> for terminal
+    </div>
+
+    <!-- Global keyboard listener for terminal -->
+    <script>
+      document.addEventListener('keydown', (e) => {
+        if (e.key === '`' || e.key === '~') {
+          e.preventDefault();
+          window.dispatchEvent(new CustomEvent('toggle-terminal'));
+        }
+      });
+    </script>
+  </body>
+</html>

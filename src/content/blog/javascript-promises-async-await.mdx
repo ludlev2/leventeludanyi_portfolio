@@ -1,0 +1,115 @@
+---
+title: 'JavaScript Promise and Async/Await'
+date: '2022-04-20'
+tags: ['JavaScript', 'ReactJs', 'Promises', 'Async/Await']
+draft: false
+author: 'Levente Ludanyi'
+summary: 'A short visual guide on what a Promise is in JavaScript, and how to avoid call back hell.'
+---
+
+## What is a Promise?
+
+The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
+
+A **Promise** is in one of these states:
+
+- *pending*: initial state, neither fulfilled nor rejected.
+- *fulfilled*: meaning that the operation was completed successfully.
+- *rejected*: meaning that the operation failed.
+
+## What is Async/Await?
+
+Async/Await was the result of `callback hell` and nested promises from the `old era` of JavaScript.
+
+## Visualization of callback hell
+
+```js
+const doSomeFetch = fetch('/some-api')
+
+doSomeFetch()
+  .then((data) => doAnotherFetch(data))
+  .then((result) => doAnoterFetch(result))
+  .then((outcome) => probablyLastFetch(outcome))
+```
+
+But in the real world, it would look something like this:
+
+```js
+doSomeFetch().then((data) => {
+  doAnotherFetch(data)
+    .then((result) => {
+      doAnoterFetch(data, result)
+        .then((outcome) => {
+          probablyLastFetch(data, result, outcome)
+            .then((fin) => {
+              // Ah Finally!
+            })
+            .catch((e) => {
+              handleError(e)
+            })
+        })
+        .catch((e) => {
+          handleError(e)
+        })
+    })
+    .catch((e) => {
+      handleError(e)
+    })
+})
+```
+
+## Async/Await allows us to write code like this:
+
+```js
+const data = await doSomeFetch()
+const result = await doAnotherFetch(data)
+const outcome = await doAnoterFetch(data, result)
+const fin = await probablyLastFetch(data, result, outcome)
+```
+
+Looks cool right? But how about error handling? It would look like this:
+
+```js
+try {
+  const data = await doSomeFetch()
+  const result = await doAnotherFetch(data)
+  const outcome = await doAnoterFetch(data, result)
+  const fin = await probablyLastFetch(data, result, outcome)
+} catch (e) {
+  handleError(e)
+}
+```
+
+## A Clean Approach
+
+Building up on our previous examples, let's create a better error handler:
+
+```js
+export async function fancyFetch(fetcher, ...args) {
+  try {
+    const data = await fetcher(...args)
+    return [data, null]
+  } catch (error) {
+    log(error)
+    return [null, error]
+  }
+}
+```
+
+If we have data, we return an array with data as the first parameter and error as null. If we get an error, we return data as null and the error object.
+
+Now to re-write the async/await example using array destructuring:
+
+```js
+const [data, dataError] = await fancyFetch(doSomeFetch);
+if(dataError) { // got the error context, do something! }
+
+const [result, resultError] = await fancyFetch(doAnotherFetch, data);
+if(resultError) { // got the error context, do something! }
+```
+
+## Conclusion
+
+- If you don't care about handling errors for individual async calls, go with a single `try/catch`.
+- If you care about handling errors for individual async calls, but do not care about the things inside the context of the catch block, use `await doSomeFetch().catch(handleError)`.
+- If the answer for both of the above points were 'No', then the `fancyFetch()` approach should work for you.

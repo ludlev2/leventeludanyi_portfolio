@@ -1,0 +1,67 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import { siteConfig } from '@/lib/site-config';
+---
+
+<PageLayout title="About | Levente Ludanyi" description="Engineer, founder, and builder of things.">
+  <header class="mb-12">
+    <h1 class="text-3xl sm:text-4xl font-mono font-medium text-text-primary mb-4">
+      About<span class="text-accent">.</span>
+    </h1>
+  </header>
+
+  <div class="prose prose-invert prose-lg max-w-none font-serif">
+    <p class="text-xl leading-relaxed text-text-secondary mb-8">
+      I'm Levente — an engineer, founder, and builder of things. Currently Co-Founder at
+      <a href="https://viewmargin.com" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">Margin</a>.
+    </p>
+
+    <p class="text-text-secondary leading-relaxed mb-8">
+      I do marathons, Ironmans, calisthenics, and water polo. When I'm not training,
+      I'm probably building something or trying to figure out how things work.
+    </p>
+
+    <h2 class="text-xl font-mono text-text-primary mt-12 mb-6">Education</h2>
+
+    <ul class="space-y-3 text-text-secondary">
+      <li>
+        <span class="text-text-primary font-medium">École Polytechnique</span> — Mathematics & Computer Science Double Major
+        <span class="text-text-muted">(must say I dropped out, otherwise I'm not a real tech bro)</span>
+      </li>
+      <li>
+        <span class="text-text-primary font-medium">Milestone Institute</span>
+      </li>
+      <li>
+        <span class="text-text-primary font-medium">High School of the University of Szeged</span> — Mathematics specialisation with advanced Physics
+      </li>
+    </ul>
+
+    <h2 class="text-xl font-mono text-text-primary mt-12 mb-6">Selected Awards</h2>
+
+    <ul class="space-y-2 text-text-secondary">
+      <li>Excellence Scholarship — <span class="text-text-muted">École Polytechnique</span></li>
+      <li>Certificate of Merit — <span class="text-text-muted">Hungarian Ministry of Human Capacities</span></li>
+      <li>Stipendium Peregrinum — <span class="text-text-muted">National Talent Support Council</span></li>
+      <li>"Talentum 2021" Grand Prize – Discovered Scientific Talent of the Year — <span class="text-text-muted">National Talent Support Council</span></li>
+      <li>Hungary of Talents Award — <span class="text-text-muted">National Talent Support Council</span></li>
+    </ul>
+
+    <h2 class="text-xl font-mono text-text-primary mt-12 mb-6">Competition Results</h2>
+
+    <ul class="space-y-2 text-text-secondary">
+      <li>XXXV. National Scientific Student Conference — <span class="text-accent">Golden Award</span></li>
+      <li>International Olympiad on Astronomy and Astrophysics — <span class="text-accent">Silver Medal</span></li>
+      <li>International Astronomy and Astrophysics Competition — <span class="text-accent">Golden Medal</span></li>
+      <li>Szilard Leo National Atomic and Modern Physics Competition — <span class="text-accent">2nd place</span> with special prize</li>
+      <li>Szokefalvi-Nagy Mathematics Competition — <span class="text-accent">1st place</span></li>
+    </ul>
+
+    <h2 class="text-xl font-mono text-text-primary mt-12 mb-6">Get in Touch</h2>
+
+    <p class="text-text-secondary">
+      Feel free to reach out at <a href={`mailto:${siteConfig.email}`} class="text-accent hover:underline">{siteConfig.email}</a>
+      or connect with me on <a href={siteConfig.social.twitter} target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">Twitter</a>
+      and <a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">LinkedIn</a>.
+    </p>
+  </div>
+</PageLayout>
