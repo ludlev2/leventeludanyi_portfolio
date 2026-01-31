@@ -1,38 +1,31 @@
 export const LOGO_ASCII = `
-   ██╗     ██╗
-   ██║     ██║
-   ██║     ██║
-   ██║     ██║
-   ███████╗███████╗
-   ╚══════╝╚══════╝
+  ╦  ╦
+  ║  ║
+  ║  ║
+  ╩═╝╩═╝
 `;
 
 export const NEOFETCH_ASCII = `
-                    levente@ludanyi.me
-   ██╗     ██╗      ─────────────────────
-   ██║     ██║      OS: Engineer × Founder
-   ██║     ██║      Host: ludanyi.me
-   ██║     ██║      Kernel: Astro + React
-   ███████╗███████╗ Shell: Terminal Mode™
-   ╚══════╝╚══════╝ Theme: Dark (always)
-                    Location: Building stuff
+  ╦  ╦     levente@ludanyi.me
+  ║  ║     ────────────────────
+  ║  ║     role    Engineer & Founder
+  ╩═╝╩═╝   host    ludanyi.me
+           stack   Astro + React + TypeScript
+           theme   Dark (always)
 
-   Currently: Co-Founder @ Margin
-   Previously: École Polytechnique
+           now     Co-Founder @ Margin
+           prev    École Polytechnique
+           focus   Building things that matter
 `;
 
-export const WELCOME_MESSAGE = `
-Welcome to Levente's terminal! Type 'help' for available commands.
-`;
+export const WELCOME_MESSAGE = `Welcome to the terminal. Type 'help' for commands.`;
 
 export const SUDO_RESPONSE = `
-[sudo] password for levente:
+[sudo] password for levente: ····
 Sorry, try again.
-[sudo] password for levente:
-Sorry, try again.
-[sudo] password for levente:
+[sudo] password for levente: ····
 
-Nice try. But you don't have sudo access here. 😏
+Nice try, but you don't have sudo access here.
 `;
 
 export const VIM_RESPONSE = `
@@ -42,17 +35,17 @@ export const VIM_RESPONSE = `
 
 Wait, how do I exit this?
 
-(Pro tip: :q! and never speak of this again)
+(Hint: :q! and pretend this never happened)
 `;
 
 export const RM_RF_RESPONSE = `
-⚠️  FATAL ERROR: Nice try, but I'm not that dumb.
+Error: Permission denied.
 
-This terminal values its existence, thank you very much.
+This terminal values its existence.
 `;
 
 export const NOT_FOUND = (cmd: string) => `
-bash: ${cmd}: command not found
+Command not found: ${cmd}
 
 Type 'help' to see available commands.
 `;
