@@ -9,41 +9,45 @@ const posts = (await getCollection('blog'))
 ---
 
 <PageLayout title="Blog | Levente Ludanyi" description="Thoughts on engineering, startups, and building things.">
-  <header class="mb-12">
-    <h1 class="text-3xl sm:text-4xl font-mono font-medium text-text-primary mb-4">
-      Blog<span class="text-accent">.</span>
+  <header class="mb-16">
+    <p class="heading-section mb-4">Writing</p>
+    <h1 class="heading-display text-4xl sm:text-5xl mb-6">
+      Blog
     </h1>
-    <p class="text-text-secondary font-serif text-lg">
+    <p class="text-lg text-text-secondary max-w-md">
       Thoughts on engineering, startups, and building things.
     </p>
   </header>
 
-  <div class="space-y-8">
-    {posts.map((post) => (
-      <article class="group">
-        <a href={`/blog/${post.slug}`} class="block">
-          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-2">
-            <h2 class="text-xl font-mono text-text-primary group-hover:text-accent transition-colors">
+  <div class="divider mb-12"></div>
+
+  <!-- Timeline of posts -->
+  <div class="timeline">
+    {posts.map((post, index) => (
+      <article class="timeline-item group">
+        <a href={`/blog/${post.slug}`} class="block card-subtle p-5 -ml-3">
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-3">
+            <h2 class="font-display text-xl text-text-primary group-hover:text-accent transition-colors">
               {post.data.title}
             </h2>
             <time
               datetime={post.data.date.toISOString()}
-              class="text-sm font-mono text-text-muted shrink-0"
+              class="text-xs font-mono text-text-muted shrink-0 tabular-nums"
             >
               {formatDate(post.data.date)}
             </time>
           </div>
 
           {post.data.summary && (
-            <p class="text-text-secondary font-serif leading-relaxed">
+            <p class="text-text-secondary leading-relaxed mb-4">
               {post.data.summary}
             </p>
           )}
 
           {post.data.tags && post.data.tags.length > 0 && (
-            <div class="flex flex-wrap gap-2 mt-3">
+            <div class="flex flex-wrap gap-2">
               {post.data.tags.slice(0, 3).map((tag) => (
-                <span class="px-2 py-0.5 text-xs font-mono bg-bg-secondary text-text-muted rounded">
+                <span class="tag">
                   {tag}
                 </span>
               ))}
@@ -55,6 +59,6 @@ const posts = (await getCollection('blog'))
   </div>
 
   {posts.length === 0 && (
-    <p class="text-text-muted font-mono">No posts yet. Check back soon!</p>
+    <p class="text-text-muted font-mono text-sm">No posts yet. Check back soon.</p>
   )}
 </PageLayout>

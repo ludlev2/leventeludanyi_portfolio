@@ -45,14 +45,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <script is:inline>
       const theme = localStorage.getItem('theme') || 'dark';
       document.documentElement.classList.toggle('light', theme === 'light');
+      document.documentElement.classList.toggle('dark', theme !== 'light');
     </script>
   </head>
-  <body class="bg-bg-primary text-text-primary min-h-screen">
+  <body class="min-h-screen flex flex-col" style="background-color: var(--bg-primary); color: var(--text-primary);">
     <slot />
 
     <!-- Terminal hint -->
-    <div class="fixed bottom-4 right-4 text-text-muted text-xs font-mono opacity-50 hover:opacity-100 transition-opacity pointer-events-none select-none">
-      Press <kbd class="px-1.5 py-0.5 bg-bg-secondary rounded text-text-secondary">`</kbd> for terminal
+    <div class="fixed bottom-4 right-4 text-text-muted text-xs font-mono opacity-40 hover:opacity-80 transition-opacity pointer-events-none select-none">
+      Press <kbd class="px-1.5 py-0.5 border border-border rounded text-text-secondary">~</kbd> for terminal
     </div>
 
     <!-- Global keyboard listener for terminal -->

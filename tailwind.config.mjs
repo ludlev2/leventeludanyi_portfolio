@@ -5,47 +5,62 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Dark mode (default)
+        // Background colors
         bg: {
-          primary: '#0a0a0a',
-          secondary: '#141414',
-          terminal: '#0d1117',
-          elevated: '#1a1a1a',
+          primary: 'var(--bg-primary)',
+          secondary: 'var(--bg-secondary)',
+          terminal: 'var(--bg-terminal)',
+          elevated: 'var(--bg-elevated)',
+          card: 'var(--bg-card)',
         },
         // Text colors
         text: {
-          primary: '#e5e5e5',
-          secondary: '#a3a3a3',
-          muted: '#525252',
+          primary: 'var(--text-primary)',
+          secondary: 'var(--text-secondary)',
+          muted: 'var(--text-muted)',
         },
-        // Accent - Terminal green
+        // Accent
         accent: {
-          DEFAULT: '#22c55e',
-          hover: '#16a34a',
-          muted: '#166534',
-          glow: 'rgba(34, 197, 94, 0.15)',
+          DEFAULT: 'var(--accent)',
+          hover: 'var(--accent-hover)',
+          muted: 'var(--accent-muted)',
         },
-        // Light mode overrides
-        light: {
-          bg: '#fafafa',
-          'bg-secondary': '#f5f5f5',
-          text: '#171717',
-          'text-secondary': '#525252',
+        // Borders
+        border: {
+          DEFAULT: 'var(--border)',
+          hover: 'var(--border-hover)',
+        },
+        // Shadows
+        shadow: {
+          DEFAULT: 'var(--shadow)',
+          subtle: 'var(--shadow-subtle)',
         },
       },
       fontFamily: {
-        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
-        serif: ['Crimson Pro', 'Georgia', 'serif'],
-        sans: ['JetBrains Mono', 'system-ui', 'sans-serif'],
+        mono: ['IBM Plex Mono', 'monospace'],
+        display: ['Newsreader', 'Georgia', 'serif'],
+        serif: ['Newsreader', 'Georgia', 'serif'],
+        sans: ['Newsreader', 'Georgia', 'serif'],
+      },
+      fontSize: {
+        'xs': ['0.6875rem', { lineHeight: '1.5' }],
+        'sm': ['0.8125rem', { lineHeight: '1.5' }],
+        'base': ['0.875rem', { lineHeight: '1.6' }],
+        'lg': ['1rem', { lineHeight: '1.6' }],
+        'xl': ['1.125rem', { lineHeight: '1.5' }],
+        '2xl': ['1.375rem', { lineHeight: '1.3' }],
+        '3xl': ['1.75rem', { lineHeight: '1.2' }],
+        '4xl': ['2.25rem', { lineHeight: '1.1' }],
+        '5xl': ['3rem', { lineHeight: '1.05' }],
+        '6xl': ['3.75rem', { lineHeight: '1' }],
       },
       animation: {
-        'cursor-blink': 'blink 1s step-end infinite',
-        'fade-in': 'fadeIn 0.5s ease-out forwards',
-        'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
+        'cursor-blink': 'blink 1.2s step-end infinite',
+        'fade-in': 'fadeIn 0.6s ease-out forwards',
+        'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
         'slide-up': 'slideUp 0.3s ease-out forwards',
         'terminal-open': 'terminalOpen 0.3s ease-out forwards',
         'terminal-close': 'terminalClose 0.2s ease-in forwards',
-        'typing': 'typing 2s steps(20) forwards',
       },
       keyframes: {
         blink: {
@@ -57,7 +72,7 @@ export default {
           '100%': { opacity: '1' },
         },
         fadeInUp: {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '0%': { opacity: '0', transform: 'translateY(16px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         slideUp: {
@@ -72,35 +87,33 @@ export default {
           '0%': { transform: 'translateY(0)', opacity: '1' },
           '100%': { transform: 'translateY(100%)', opacity: '0' },
         },
-        typing: {
-          '0%': { width: '0' },
-          '100%': { width: '100%' },
-        },
       },
       typography: {
         DEFAULT: {
           css: {
-            '--tw-prose-body': '#e5e5e5',
-            '--tw-prose-headings': '#e5e5e5',
-            '--tw-prose-links': '#22c55e',
-            '--tw-prose-bold': '#e5e5e5',
-            '--tw-prose-code': '#22c55e',
-            '--tw-prose-pre-bg': '#0d1117',
-            '--tw-prose-pre-code': '#e5e5e5',
+            '--tw-prose-body': 'var(--text-secondary)',
+            '--tw-prose-headings': 'var(--text-primary)',
+            '--tw-prose-links': 'var(--accent)',
+            '--tw-prose-bold': 'var(--text-primary)',
+            '--tw-prose-code': 'var(--text-primary)',
+            '--tw-prose-pre-bg': 'var(--bg-terminal)',
+            '--tw-prose-pre-code': 'var(--text-primary)',
             'code::before': { content: '""' },
             'code::after': { content: '""' },
             code: {
-              backgroundColor: '#1a1a1a',
-              padding: '0.25rem 0.5rem',
-              borderRadius: '0.25rem',
+              backgroundColor: 'var(--shadow-subtle)',
+              padding: '0.2em 0.4em',
+              border: '1px solid var(--border)',
               fontWeight: '400',
             },
             a: {
+              color: 'var(--text-primary)',
               textDecoration: 'none',
-              borderBottom: '1px solid #22c55e',
-              transition: 'border-color 0.2s',
+              borderBottom: '1px solid var(--border-hover)',
+              transition: 'all 0.15s ease',
               '&:hover': {
-                borderBottomWidth: '2px',
+                color: 'var(--accent)',
+                borderBottomColor: 'var(--accent)',
               },
             },
           },

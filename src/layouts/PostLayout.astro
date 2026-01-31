@@ -20,34 +20,31 @@ const { title, date, author, tags = [], summary, readingTime } = Astro.props;
 <BaseLayout title={`${title} | Levente Ludanyi`} description={summary}>
   <Header />
 
-  <main class="min-h-screen pt-20 pb-16">
-    <article class="max-w-3xl mx-auto px-6">
+  <main class="min-h-screen pt-24 pb-20">
+    <article class="max-w-2xl mx-auto px-6">
       <!-- Post header -->
-      <header class="mb-12">
-        <div class="flex items-center gap-3 text-text-muted text-sm font-mono mb-4">
+      <header class="mb-16">
+        <p class="heading-section mb-6">
           <time datetime={date.toISOString()}>{formatDate(date)}</time>
           {readingTime && (
-            <>
-              <span>•</span>
-              <span>{readingTime}</span>
-            </>
+            <span class="ml-4">{readingTime}</span>
           )}
-        </div>
+        </p>
 
-        <h1 class="text-3xl sm:text-4xl font-mono font-medium text-text-primary mb-4">
+        <h1 class="heading-display text-4xl sm:text-5xl mb-6">
           {title}
         </h1>
 
         {summary && (
-          <p class="text-text-secondary font-serif text-lg leading-relaxed">
+          <p class="text-xl text-text-secondary leading-relaxed">
             {summary}
           </p>
         )}
 
         {tags.length > 0 && (
-          <div class="flex flex-wrap gap-2 mt-6">
+          <div class="flex flex-wrap gap-2 mt-8">
             {tags.map((tag) => (
-              <span class="px-2 py-1 text-xs font-mono bg-bg-secondary text-text-secondary rounded">
+              <span class="tag">
                 {tag}
               </span>
             ))}
@@ -55,18 +52,23 @@ const { title, date, author, tags = [], summary, readingTime } = Astro.props;
         )}
       </header>
 
+      <div class="divider mb-12"></div>
+
       <!-- Post content -->
-      <div class="prose prose-invert prose-lg max-w-none font-serif">
+      <div class="post-content">
         <slot />
       </div>
 
       <!-- Back link -->
-      <div class="mt-16 pt-8 border-t border-bg-secondary">
+      <div class="mt-20 pt-10 border-t border-border">
         <a
           href="/blog"
-          class="font-mono text-accent hover:underline"
+          class="btn"
         >
-          ← Back to blog
+          <svg class="w-3 h-3 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          Back to blog
         </a>
       </div>
     </article>
@@ -75,3 +77,178 @@ const { title, date, author, tags = [], summary, readingTime } = Astro.props;
   <Footer />
   <Terminal client:load />
 </BaseLayout>
+
+<style is:global>
+  .post-content {
+    font-size: 1.0625rem;
+    line-height: 1.85;
+    color: var(--text-secondary);
+  }
+
+  .post-content > * + * {
+    margin-top: 1.5rem;
+  }
+
+  .post-content h2 {
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .post-content h3 {
+    font-size: 1.375rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .post-content h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .post-content p {
+    color: var(--text-secondary);
+  }
+
+  .post-content strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .post-content em {
+    font-style: italic;
+  }
+
+  .post-content a {
+    color: var(--text-primary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border-hover);
+    transition: all 0.15s ease;
+  }
+
+  .post-content a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  .post-content ul,
+  .post-content ol {
+    padding-left: 1.5rem;
+  }
+
+  .post-content ul {
+    list-style-type: disc;
+  }
+
+  .post-content ol {
+    list-style-type: decimal;
+  }
+
+  .post-content li {
+    margin-top: 0.5rem;
+    padding-left: 0.25rem;
+  }
+
+  .post-content li::marker {
+    color: var(--text-muted);
+  }
+
+  .post-content blockquote {
+    border-left: 2px solid var(--accent-muted);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: var(--text-secondary);
+  }
+
+  .post-content pre {
+    background-color: var(--bg-terminal);
+    border: 1px solid var(--border);
+    padding: 1.25rem;
+    overflow-x: auto;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    margin: 2rem 0;
+  }
+
+  .post-content code {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.875em;
+  }
+
+  .post-content :not(pre) > code {
+    background-color: var(--shadow-subtle);
+    padding: 0.2em 0.4em;
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+  }
+
+  .post-content hr {
+    border: none;
+    height: 1px;
+    background-color: var(--border);
+    margin: 3rem 0;
+  }
+
+  .post-content img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--border);
+    margin: 2rem 0;
+  }
+
+  .post-content figure {
+    margin: 2rem 0;
+  }
+
+  .post-content figcaption {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 0.75rem;
+    text-align: center;
+  }
+
+  .post-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.9375rem;
+  }
+
+  .post-content th,
+  .post-content td {
+    border: 1px solid var(--border);
+    padding: 0.75rem 1rem;
+    text-align: left;
+  }
+
+  .post-content th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background-color: var(--bg-secondary);
+  }
+
+  /* First paragraph - larger intro */
+  .post-content > p:first-of-type {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+  }
+</style>
