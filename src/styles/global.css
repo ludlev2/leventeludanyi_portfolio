@@ -273,6 +273,8 @@
   .delay-300 { animation-delay: 240ms; }
   .delay-400 { animation-delay: 320ms; }
   .delay-500 { animation-delay: 400ms; }
+  .delay-600 { animation-delay: 480ms; }
+  .delay-700 { animation-delay: 560ms; }
 
   /* === TERMINAL === */
   .terminal-input {

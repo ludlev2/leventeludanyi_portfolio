@@ -252,7 +252,8 @@ export default function Terminal() {
             {/* Terminal content */}
             <div
               ref={terminalRef}
-              className="flex-1 overflow-y-auto p-5 font-mono text-sm leading-relaxed"
+              className="flex-1 overflow-y-auto p-5 font-mono text-sm leading-relaxed cursor-text"
+              onClick={() => inputRef.current?.focus()}
             >
               {history.map((entry, index) => (
                 <div key={index} className="mb-5">
