@@ -13,7 +13,7 @@ export const siteConfig = {
   },
 
   nav: [
-    { name: 'blog', href: '/blog' },
+    // { name: 'blog', href: '/blog' }, // Hidden until blog has content
     { name: 'projects', href: '/projects' },
     { name: 'about', href: '/about' },
   ],
