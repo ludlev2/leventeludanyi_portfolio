@@ -66,7 +66,7 @@ export default function Terminal() {
   useEffect(() => {
     if (input) {
       const suggestions = getCommandSuggestions(input);
-      if (suggestions.length > 0 && suggestions[0] !== input) {
+      if (suggestions.length > 0 && suggestions[0].toLowerCase() !== input.toLowerCase()) {
         setSuggestion(suggestions[0]);
       } else {
         setSuggestion('');
@@ -172,10 +172,11 @@ export default function Terminal() {
     }
   };
 
-  // Render output - HTML output is from our own trusted command responses
+  // Render output
+  // Note: HTML content is safe as it comes from hardcoded command responses in commands.ts,
+  // not from user input. This is intentional for formatting command output.
   const renderOutput = (entry: HistoryEntry) => {
     if (entry.isHtml) {
-      // Safe: HTML comes from hardcoded command responses in commands.ts
       return <div dangerouslySetInnerHTML={{ __html: entry.output }} />;
     }
     return entry.output;
@@ -196,48 +197,77 @@ export default function Terminal() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            className="absolute inset-0 bg-[var(--bg-primary)]/80 backdrop-blur-sm"
             onClick={() => setIsOpen(false)}
           />
 
           {/* Terminal window */}
           <motion.div
-            initial={{ scale: 0.95 }}
-            animate={{ scale: 1 }}
-            exit={{ scale: 0.95 }}
-            className="relative w-full max-w-3xl h-[70vh] sm:h-[60vh] bg-bg-terminal border border-text-muted/20 rounded-lg shadow-2xl overflow-hidden flex flex-col"
+            initial={{ scale: 0.95, y: 20 }}
+            animate={{ scale: 1, y: 0 }}
+            exit={{ scale: 0.95, y: 20 }}
+            className="relative w-full max-w-2xl h-[70vh] sm:h-[65vh] overflow-hidden flex flex-col"
+            style={{
+              backgroundColor: 'var(--bg-terminal)',
+              border: '1px solid var(--border)',
+              boxShadow: '6px 6px 0 0 var(--shadow)',
+            }}
           >
             {/* Title bar */}
-            <div className="flex items-center gap-2 px-4 py-3 bg-bg-secondary border-b border-text-muted/20">
-              <div className="flex gap-2">
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="w-3 h-3 rounded-full bg-red-500 hover:bg-red-600 transition-colors"
-                  aria-label="Close terminal"
-                />
-                <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                <div className="w-3 h-3 rounded-full bg-green-500" />
+            <div
+              className="flex items-center justify-between px-5 py-3"
+              style={{
+                backgroundColor: 'var(--bg-secondary)',
+                borderBottom: '1px solid var(--border)',
+              }}
+            >
+              <div className="flex items-center gap-3">
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="w-3 h-3 rounded-full transition-colors"
+                    style={{ backgroundColor: 'var(--accent-muted)' }}
+                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--accent)'}
+                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'var(--accent-muted)'}
+                    aria-label="Close terminal"
+                  />
+                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: 'var(--border-hover)' }} />
+                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: 'var(--border-hover)' }} />
+                </div>
+                <span
+                  className="font-mono text-xs"
+                  style={{ color: 'var(--text-muted)' }}
+                >
+                  terminal
+                </span>
               </div>
-              <span className="ml-4 text-text-secondary text-sm font-mono">
-                levente@ludanyi.me: ~
+              <span
+                className="font-mono text-xs"
+                style={{ color: 'var(--text-muted)' }}
+              >
+                levente@ludanyi.me
               </span>
             </div>
 
             {/* Terminal content */}
             <div
               ref={terminalRef}
-              className="flex-1 overflow-y-auto p-4 font-mono text-sm"
+              className="flex-1 overflow-y-auto p-5 font-mono text-sm leading-relaxed cursor-text"
+              onClick={() => inputRef.current?.focus()}
             >
               {history.map((entry, index) => (
-                <div key={index} className="mb-4">
+                <div key={index} className="mb-5">
                   {entry.command && (
-                    <div className="flex items-center gap-2 text-text-primary">
-                      <span className="text-accent">❯</span>
+                    <div className="flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
+                      <span style={{ color: 'var(--accent)' }}>→</span>
                       <span>{entry.command}</span>
                     </div>
                   )}
                   {entry.output && (
-                    <div className="mt-1 text-text-secondary whitespace-pre-wrap">
+                    <div
+                      className="mt-2 whitespace-pre-wrap"
+                      style={{ color: 'var(--text-secondary)' }}
+                    >
                       {renderOutput(entry)}
                     </div>
                   )}
@@ -246,7 +276,7 @@ export default function Terminal() {
 
               {/* Input line */}
               <form onSubmit={handleSubmit} className="flex items-center gap-2">
-                <span className="text-accent">❯</span>
+                <span style={{ color: 'var(--accent)' }}>→</span>
                 <div className="relative flex-1">
                   <input
                     ref={inputRef}
@@ -254,16 +284,23 @@ export default function Terminal() {
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={handleKeyDown}
-                    className="w-full bg-transparent border-none outline-none text-text-primary font-mono"
+                    className="w-full bg-transparent border-none outline-none font-mono"
+                    style={{
+                      color: 'var(--text-primary)',
+                      caretColor: 'var(--accent)',
+                    }}
                     spellCheck={false}
                     autoComplete="off"
                     autoCapitalize="off"
                   />
                   {/* Tab completion hint */}
-                  {suggestion && (
-                    <span className="absolute left-0 top-0 text-text-muted pointer-events-none">
+                  {suggestion && suggestion.toLowerCase().startsWith(input.toLowerCase()) && (
+                    <span
+                      className="absolute left-0 top-0 pointer-events-none"
+                      style={{ color: 'var(--text-muted)' }}
+                    >
                       {input}
-                      <span className="opacity-50">
+                      <span className="opacity-40">
                         {suggestion.slice(input.length)}
                       </span>
                     </span>
@@ -273,10 +310,26 @@ export default function Terminal() {
             </div>
 
             {/* Footer hint */}
-            <div className="px-4 py-2 bg-bg-secondary border-t border-text-muted/20 text-text-muted text-xs font-mono">
-              Press <kbd className="px-1 py-0.5 bg-bg-primary rounded">Esc</kbd> to close •
-              <kbd className="px-1 py-0.5 bg-bg-primary rounded ml-2">Tab</kbd> to autocomplete •
-              <kbd className="px-1 py-0.5 bg-bg-primary rounded ml-2">↑↓</kbd> for history
+            <div
+              className="px-5 py-3 font-mono text-xs flex items-center justify-between"
+              style={{
+                backgroundColor: 'var(--bg-secondary)',
+                borderTop: '1px solid var(--border)',
+                color: 'var(--text-muted)',
+              }}
+            >
+              <span>
+                <kbd className="px-1.5 py-0.5 mr-1" style={{ border: '1px solid var(--border)', backgroundColor: 'var(--bg-primary)' }}>Esc</kbd>
+                close
+              </span>
+              <span>
+                <kbd className="px-1.5 py-0.5 mr-1" style={{ border: '1px solid var(--border)', backgroundColor: 'var(--bg-primary)' }}>Tab</kbd>
+                complete
+              </span>
+              <span>
+                <kbd className="px-1.5 py-0.5 mr-1" style={{ border: '1px solid var(--border)', backgroundColor: 'var(--bg-primary)' }}>↑↓</kbd>
+                history
+              </span>
             </div>
           </motion.div>
         </motion.div>

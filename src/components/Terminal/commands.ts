@@ -27,25 +27,27 @@ let currentDir = '~';
 const commands: Record<string, CommandHandler> = {
   help: () => ({
     output: `
-Available commands:
+Commands
+────────────────────
 
-  <span class="text-accent">help</span>        Show this help message
-  <span class="text-accent">ls</span>          List directory contents
-  <span class="text-accent">cd</span> &lt;dir&gt;    Change directory (blog, projects, about)
-  <span class="text-accent">cat</span> &lt;file&gt;  Read a file
-  <span class="text-accent">open</span> &lt;page&gt; Open a page in the browser
+Navigation
+  <span style="color: var(--accent)">ls</span>            List directory contents
+  <span style="color: var(--accent)">cd</span> [dir]      Change directory
+  <span style="color: var(--accent)">cat</span> [file]    Read a file
+  <span style="color: var(--accent)">open</span> [page]   Open a page (blog, projects, about)
 
-  <span class="text-accent">whoami</span>      About me
-  <span class="text-accent">neofetch</span>    System info (the fun kind)
-  <span class="text-accent">social</span>      Show social links
-  <span class="text-accent">contact</span>     Contact information
+Info
+  <span style="color: var(--accent)">whoami</span>        About me
+  <span style="color: var(--accent)">neofetch</span>      System info
+  <span style="color: var(--accent)">social</span>        Social links
+  <span style="color: var(--accent)">contact</span>       Contact information
 
-  <span class="text-accent">theme</span> &lt;dark|light&gt;  Toggle theme
-  <span class="text-accent">clear</span>       Clear the terminal
-  <span class="text-accent">history</span>     Show command history
-  <span class="text-accent">exit</span>        Close terminal (or press Esc)
+System
+  <span style="color: var(--accent)">theme</span> [mode]  Toggle theme (dark/light)
+  <span style="color: var(--accent)">clear</span>         Clear terminal
+  <span style="color: var(--accent)">exit</span>          Close terminal
 
-Pro tip: Use ↑/↓ arrows to navigate command history.
+Use ↑↓ for command history, Tab for autocomplete.
 `,
     isHtml: true,
   }),
@@ -55,9 +57,9 @@ Pro tip: Use ↑/↓ arrows to navigate command history.
     const formatted = contents
       .map((item) => {
         if (item.endsWith('.md')) {
-          return `<span class="text-text-secondary">${item}</span>`;
+          return `<span style="color: var(--text-secondary)">${item}</span>`;
         }
-        return `<span class="text-accent">${item}/</span>`;
+        return `<span style="color: var(--accent)">${item}/</span>`;
       })
       .join('  ');
 
@@ -111,22 +113,21 @@ Pro tip: Use ↑/↓ arrows to navigate command history.
     if (file === 'about.md' || file === 'README.md') {
       return {
         output: `
-# Levente Ludanyi
+Levente Ludanyi
+────────────────────
 
 Engineer & Founder. Building things that matter.
 
-## Currently
-- Co-Founder @ Margin (viewmargin.com)
+Currently
+  Co-Founder @ Margin (viewmargin.com)
 
-## Previously
-- Mathematics & Computer Science @ École Polytechnique
+Previously
+  Mathematics & Computer Science @ École Polytechnique
 
-## Interests
-- Marathons, Ironmans, Calisthenics, Water Polo
-- Building startups
-- Web3 & DeFi
+Interests
+  Marathons, Ironmans, Calisthenics, Water Polo
 
-Run 'open about' to see the full about page.
+Run 'open about' to see the full page.
 `,
       };
     }
@@ -138,7 +139,7 @@ Run 'open about' to see the full about page.
     const page = args[0];
 
     if (!page) {
-      return { output: 'open: missing page argument\nUsage: open <blog|projects|about>' };
+      return { output: 'Usage: open [blog|projects|about]' };
     }
 
     const validPages = ['blog', 'projects', 'about'];
@@ -160,56 +161,56 @@ Run 'open about' to see the full about page.
       };
     }
 
-    return { output: `open: ${page}: not a valid page\nTry: blog, projects, about` };
+    return { output: `Unknown page: ${page}\nTry: blog, projects, about` };
   },
 
   whoami: () => ({
     output: `
 Levente Ludanyi
-─────────────────
+────────────────────
 
 Engineer, founder, and builder of things.
 
-Currently building Margin - helping creators and businesses
+Currently building Margin — helping creators and businesses
 understand their margins and make better decisions.
 
-When not coding, I'm probably running a marathon, doing an Ironman,
-or playing water polo. Yes, all of them.
+When not coding, probably running a marathon, doing an
+Ironman, or playing water polo.
 
-Education: École Polytechnique (Mathematics & Computer Science)
-           ...but I dropped out. Gotta get that tech bro credibility.
+Education: École Polytechnique (Maths & CS)
+           ...dropped out for the tech bro credibility.
 
 Contact: ${siteConfig.email}
 `,
   }),
 
   neofetch: () => ({
-    output: `<pre class="text-accent">${NEOFETCH_ASCII}</pre>`,
+    output: `<pre style="color: var(--accent)">${NEOFETCH_ASCII}</pre>`,
     isHtml: true,
   }),
 
   social: () => ({
     output: `
-Social Links
-────────────
+Social
+────────────────────
 
-  GitHub:   ${siteConfig.social.github}
-  Twitter:  ${siteConfig.social.twitter}
-  LinkedIn: ${siteConfig.social.linkedin}
-  Spotify:  ${siteConfig.social.spotify}
+  GitHub    ${siteConfig.social.github}
+  Twitter   ${siteConfig.social.twitter}
+  LinkedIn  ${siteConfig.social.linkedin}
+  Spotify   ${siteConfig.social.spotify}
 `,
   }),
 
   contact: () => ({
     output: `
 Contact
-───────
+────────────────────
 
-  Email:    ${siteConfig.email}
-  Twitter:  ${siteConfig.social.twitter}
-  LinkedIn: ${siteConfig.social.linkedin}
+  Email     ${siteConfig.email}
+  Twitter   ${siteConfig.social.twitter}
+  LinkedIn  ${siteConfig.social.linkedin}
 
-Feel free to reach out! I don't bite (usually).
+Feel free to reach out.
 `,
   }),
 
@@ -217,7 +218,8 @@ Feel free to reach out! I don't bite (usually).
     const theme = args[0];
 
     if (!theme) {
-      return { output: 'Current theme: dark\nUsage: theme <dark|light>' };
+      const current = document.documentElement.classList.contains('light') ? 'light' : 'dark';
+      return { output: `Current theme: ${current}\nUsage: theme [dark|light]` };
     }
 
     if (theme === 'dark' || theme === 'light') {
@@ -228,7 +230,7 @@ Feel free to reach out! I don't bite (usually).
       };
     }
 
-    return { output: 'theme: invalid option\nUsage: theme <dark|light>' };
+    return { output: 'Usage: theme [dark|light]' };
   },
 
   clear: () => ({
@@ -237,11 +239,11 @@ Feel free to reach out! I don't bite (usually).
   }),
 
   history: () => ({
-    output: 'Command history is shown with ↑/↓ arrow keys.',
+    output: 'Use ↑/↓ arrow keys to navigate command history.',
   }),
 
   exit: () => ({
-    output: 'Goodbye! 👋',
+    output: 'Goodbye.',
     action: 'exit',
   }),
 
@@ -274,24 +276,26 @@ Feel free to reach out! I don't bite (usually).
   }),
 
   date: () => ({
-    output: new Date().toString(),
+    output: new Date().toLocaleString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+    }),
   }),
 
   whoismycrush: () => ({
     output: `
-🤔 Hmm, let me think...
+Analyzing terminal usage patterns...
 
-After careful analysis of your browsing history and terminal usage patterns...
+Based on the evidence, your crush is probably:
+  • A well-documented API
+  • Clean code with no bugs
+  • Someone who uses vim
 
-Just kidding. I don't have access to that.
-
-But based on the fact that you're using a terminal on a portfolio website,
-I'd say your crush is probably:
-- A well-documented API
-- Clean code with no bugs
-- Or maybe just someone who uses vim
-
-Type 'exit' to close this terminal and touch grass.
+Type 'exit' to close and touch grass.
 `,
   }),
 };
@@ -318,7 +322,63 @@ export function executeCommand(input: string): CommandResult {
 export function getCommandSuggestions(partial: string): string[] {
   if (!partial) return [];
 
-  return Object.keys(commands).filter((cmd) =>
-    cmd.startsWith(partial.toLowerCase())
-  );
+  const parts = partial.toLowerCase().split(/\s+/);
+  const cmd = parts[0];
+  const arg = parts[1] || '';
+
+  // If we're still typing the command (no space yet)
+  if (parts.length === 1) {
+    return Object.keys(commands)
+      .filter((c) => c.startsWith(cmd))
+      .map((c) => c);
+  }
+
+  // We have a command and are typing an argument
+  const commandsWithFilesystem = ['cd', 'ls'];
+  const commandsWithPages = ['open'];
+  const commandsWithTheme = ['theme'];
+  const commandsWithFiles = ['cat'];
+
+  if (commandsWithFilesystem.includes(cmd)) {
+    // Get current directory contents
+    const contents = FILESYSTEM[currentDir as keyof typeof FILESYSTEM] || [];
+    const dirs = contents.filter((item) => !item.endsWith('.md'));
+
+    // Add parent directory option
+    const suggestions = currentDir !== '~' ? ['..', ...dirs] : dirs;
+
+    const matches = suggestions.filter((d) => d.startsWith(arg));
+    if (matches.length > 0) {
+      return [`${cmd} ${matches[0]}`];
+    }
+  }
+
+  if (commandsWithFiles.includes(cmd)) {
+    // Get files in current directory
+    const contents = FILESYSTEM[currentDir as keyof typeof FILESYSTEM] || [];
+    const files = contents.filter((item) => item.endsWith('.md'));
+
+    const matches = files.filter((f) => f.startsWith(arg));
+    if (matches.length > 0) {
+      return [`${cmd} ${matches[0]}`];
+    }
+  }
+
+  if (commandsWithPages.includes(cmd)) {
+    const pages = ['blog', 'projects', 'about'];
+    const matches = pages.filter((p) => p.startsWith(arg));
+    if (matches.length > 0) {
+      return [`${cmd} ${matches[0]}`];
+    }
+  }
+
+  if (commandsWithTheme.includes(cmd)) {
+    const themes = ['dark', 'light'];
+    const matches = themes.filter((t) => t.startsWith(arg));
+    if (matches.length > 0) {
+      return [`${cmd} ${matches[0]}`];
+    }
+  }
+
+  return [];
 }

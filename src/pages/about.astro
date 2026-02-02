@@ -1,67 +1,230 @@
 ---
-import PageLayout from '@/layouts/PageLayout.astro';
-import { siteConfig } from '@/lib/site-config';
+import PageLayout from "@/layouts/PageLayout.astro";
+import { siteConfig } from "@/lib/site-config";
 ---
 
-<PageLayout title="About | Levente Ludanyi" description="Engineer, founder, and builder of things.">
-  <header class="mb-12">
-    <h1 class="text-3xl sm:text-4xl font-mono font-medium text-text-primary mb-4">
-      About<span class="text-accent">.</span>
-    </h1>
+<PageLayout
+  title="About | Levente Ludanyi"
+  description="Engineer, founder, and builder of things."
+>
+  <header class="mb-16">
+    <p class="heading-section mb-4">Profile</p>
+    <h1 class="heading-display text-4xl sm:text-5xl mb-6">about</h1>
   </header>
 
-  <div class="prose prose-invert prose-lg max-w-none font-serif">
-    <p class="text-xl leading-relaxed text-text-secondary mb-8">
-      I'm Levente — an engineer, founder, and builder of things. Currently Co-Founder at
-      <a href="https://viewmargin.com" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">Margin</a>.
-    </p>
+  <div class="divider mb-12"></div>
 
-    <p class="text-text-secondary leading-relaxed mb-8">
-      I do marathons, Ironmans, calisthenics, and water polo. When I'm not training,
-      I'm probably building something or trying to figure out how things work.
-    </p>
+  <div class="max-w-2xl">
+    <!-- Bio -->
+    <section class="mb-16">
+      <p class="text-xl text-text-secondary leading-relaxed mb-6">
+        i'm Levente — i like building things. currently delivering shareholder
+        value as a co-founder at
+        <a
+          href="https://viewmargin.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-underline">margin</a
+        >.
+      </p>
 
-    <h2 class="text-xl font-mono text-text-primary mt-12 mb-6">Education</h2>
+      <p class="text-text-secondary leading-relaxed">
+        i do marathons, ironmans, calisthenics, water polo and produce some
+        songs on <a
+          href="https://suno.com/@alijee"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-underline">suno</a
+        >.
+      </p>
+    </section>
 
-    <ul class="space-y-3 text-text-secondary">
-      <li>
-        <span class="text-text-primary font-medium">École Polytechnique</span> — Mathematics & Computer Science Double Major
-        <span class="text-text-muted">(must say I dropped out, otherwise I'm not a real tech bro)</span>
-      </li>
-      <li>
-        <span class="text-text-primary font-medium">Milestone Institute</span>
-      </li>
-      <li>
-        <span class="text-text-primary font-medium">High School of the University of Szeged</span> — Mathematics specialisation with advanced Physics
-      </li>
-    </ul>
+    <!-- Education -->
+    <section class="mb-16">
+      <h2 class="heading-section mb-6">Education</h2>
 
-    <h2 class="text-xl font-mono text-text-primary mt-12 mb-6">Selected Awards</h2>
+      <div class="space-y-4">
+        <div class="card p-5">
+          <h3 class="font-display text-lg text-text-primary mb-1">
+            École Polytechnique
+          </h3>
+          <p class="text-sm text-text-secondary mb-2">
+            Mathematics & Computer Science Double Major
+          </p>
+          <p class="text-xs text-text-muted font-mono">
+            (must say i dropped out, otherwise I'm not a real tech bro)
+          </p>
+        </div>
 
-    <ul class="space-y-2 text-text-secondary">
-      <li>Excellence Scholarship — <span class="text-text-muted">École Polytechnique</span></li>
-      <li>Certificate of Merit — <span class="text-text-muted">Hungarian Ministry of Human Capacities</span></li>
-      <li>Stipendium Peregrinum — <span class="text-text-muted">National Talent Support Council</span></li>
-      <li>"Talentum 2021" Grand Prize – Discovered Scientific Talent of the Year — <span class="text-text-muted">National Talent Support Council</span></li>
-      <li>Hungary of Talents Award — <span class="text-text-muted">National Talent Support Council</span></li>
-    </ul>
+        <div class="card p-5">
+          <h3 class="font-display text-lg text-text-primary mb-1">
+            Milestone Institute
+          </h3>
+          <p class="text-sm text-text-secondary">Advanced studies program</p>
+        </div>
 
-    <h2 class="text-xl font-mono text-text-primary mt-12 mb-6">Competition Results</h2>
+        <div class="card p-5">
+          <h3 class="font-display text-lg text-text-primary mb-1">
+            High School of the University of Szeged
+          </h3>
+          <p class="text-sm text-text-secondary">
+            Mathematics specialisation with advanced Physics
+          </p>
+        </div>
+      </div>
+    </section>
 
-    <ul class="space-y-2 text-text-secondary">
-      <li>XXXV. National Scientific Student Conference — <span class="text-accent">Golden Award</span></li>
-      <li>International Olympiad on Astronomy and Astrophysics — <span class="text-accent">Silver Medal</span></li>
-      <li>International Astronomy and Astrophysics Competition — <span class="text-accent">Golden Medal</span></li>
-      <li>Szilard Leo National Atomic and Modern Physics Competition — <span class="text-accent">2nd place</span> with special prize</li>
-      <li>Szokefalvi-Nagy Mathematics Competition — <span class="text-accent">1st place</span></li>
-    </ul>
+    <!-- Awards -->
+    <section class="mb-16">
+      <h2 class="heading-section mb-6">Selected Awards</h2>
 
-    <h2 class="text-xl font-mono text-text-primary mt-12 mb-6">Get in Touch</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <p class="text-text-primary font-display">Excellence Scholarship</p>
+          <p class="text-xs text-text-muted font-mono">École Polytechnique</p>
+        </div>
+        <div class="timeline-item">
+          <p class="text-text-primary font-display">Certificate of Merit</p>
+          <p class="text-xs text-text-muted font-mono">
+            Hungarian Ministry of Human Capacities
+          </p>
+        </div>
+        <div class="timeline-item">
+          <p class="text-text-primary font-display">Stipendium Peregrinum</p>
+          <p class="text-xs text-text-muted font-mono">
+            National Talent Support Council
+          </p>
+        </div>
+        <div class="timeline-item">
+          <p class="text-text-primary font-display">
+            "Talentum 2021" Grand Prize
+          </p>
+          <p class="text-sm text-text-secondary mb-1">
+            Discovered Scientific Talent of the Year
+          </p>
+          <p class="text-xs text-text-muted font-mono">
+            National Talent Support Council
+          </p>
+        </div>
+        <div class="timeline-item">
+          <p class="text-text-primary font-display">Hungary of Talents Award</p>
+          <p class="text-xs text-text-muted font-mono">
+            National Talent Support Council
+          </p>
+        </div>
+      </div>
+    </section>
 
-    <p class="text-text-secondary">
-      Feel free to reach out at <a href={`mailto:${siteConfig.email}`} class="text-accent hover:underline">{siteConfig.email}</a>
-      or connect with me on <a href={siteConfig.social.twitter} target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">Twitter</a>
-      and <a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">LinkedIn</a>.
-    </p>
+    <!-- Competition Results -->
+    <section class="mb-16">
+      <h2 class="heading-section mb-6">Competition Results</h2>
+
+      <div class="space-y-3">
+        <div
+          class="flex items-baseline justify-between gap-4 py-3 border-b border-border"
+        >
+          <span class="font-display text-text-primary"
+            >XXXV. National Scientific Student Conference</span
+          >
+          <span class="tag shrink-0">Golden Award</span>
+        </div>
+        <div
+          class="flex items-baseline justify-between gap-4 py-3 border-b border-border"
+        >
+          <span class="font-display text-text-primary"
+            >International Olympiad on Astronomy and Astrophysics</span
+          >
+          <span class="tag shrink-0">Silver Medal</span>
+        </div>
+        <div
+          class="flex items-baseline justify-between gap-4 py-3 border-b border-border"
+        >
+          <span class="font-display text-text-primary"
+            >International Astronomy and Astrophysics Competition</span
+          >
+          <span class="tag shrink-0">Golden Medal</span>
+        </div>
+        <div
+          class="flex items-baseline justify-between gap-4 py-3 border-b border-border"
+        >
+          <span class="font-display text-text-primary"
+            >Szilard Leo National Atomic and Modern Physics Competition</span
+          >
+          <span class="tag shrink-0">2nd place + Special Prize</span>
+        </div>
+        <div
+          class="flex items-baseline justify-between gap-4 py-3 border-b border-border"
+        >
+          <span class="font-display text-text-primary"
+            >Szokefalvi-Nagy Mathematics Competition</span
+          >
+          <span class="tag shrink-0">1st place</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section>
+      <h2 class="heading-section mb-6">Get in Touch</h2>
+
+      <p class="text-text-secondary leading-relaxed mb-6">
+        feel free to reach out at <a
+          href={`mailto:${siteConfig.email}`}
+          class="link-underline">{siteConfig.email}</a
+        >
+        or connect with me on <a
+          href={siteConfig.social.twitter}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-underline">twitter</a
+        >
+        and <a
+          href={siteConfig.social.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-underline">linkedin</a
+        >.
+      </p>
+
+      <div class="flex gap-3">
+        <a href={`mailto:${siteConfig.email}`} class="btn">
+          email
+          <svg
+            class="w-3 h-3 ml-2 opacity-50"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+            ></path>
+          </svg>
+        </a>
+        <a
+          href={siteConfig.social.twitter}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn"
+        >
+          twitter
+          <svg
+            class="w-3 h-3 ml-2 opacity-50"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+            ></path>
+          </svg>
+        </a>
+      </div>
+    </section>
   </div>
 </PageLayout>
